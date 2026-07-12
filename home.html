@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | SPARK</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .hero-lush {
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(6, 78, 59, 0.6), rgba(6, 78, 59, 0.6)), url('images/home-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        .hero-lush h1 { font-size: 5.5rem; line-height: 1; margin: 0; font-weight: 900; color: #ffffff; }
+        .hero-lush p  { font-size: 1.4rem; max-width: 700px; margin: 20px auto; opacity: 0.9; }
+
+        .grid-wrap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 0 8% 100px;
+            margin-top: -100px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .portal-section {
+            background: white;
+            padding: 100px 8%;
+            text-align: center;
+            border-radius: 60px 60px 0 0;
+        }
+        .portal-section h2 { font-size: 2rem; margin-bottom: 15px; }
+        .portal-section > p { max-width: 620px; margin: 0 auto 30px; }
+
+        .portal-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn-node {
+            padding: 15px 40px;
+            background: var(--deep-forest);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            transition: 0.4s;
+        }
+        .btn-node:hover {
+            background: var(--emerald);
+            transform: scale(1.05);
+            color: white;
+        }
+
+        @media (max-width: 900px) {
+            .hero-lush h1 { font-size: 3rem; }
+            .grid-wrap { grid-template-columns: 1fr; margin-top: -60px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="SPARK logo">
+            <span class="brand">SPAR<span class="k">K</span></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html" class="active-page">Home</a></li>
+                <li><a href="ais.html">Action Simulator</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero-lush">
+            <div>
+                <h1>PROTECT.<br>REGENERATE.</h1>
+                <p>Our planet's future depends on the actions we take today. Join the movement for a greener tomorrow.</p>
+            </div>
+        </section>
+
+        <section class="grid-wrap">
+
+            <div class="lush-card">
+                <img src="images/mission1.jpg" alt="Peatland and mangrove wetlands storing carbon">
+                <h3 style="color: var(--emerald); margin-top: 15px;">Carbon Sinks</h3>
+                <p>Peatlands, mangroves and forests are the planet's natural CO2 vacuums. Protecting and restoring them is one of the fastest ways to cool the atmosphere.</p>
+            </div>
+
+            <div class="lush-card">
+                <img src="images/mission2.jpg" alt="Solar panels installed on a residential rooftop">
+                <h3 style="color: var(--emerald); margin-top: 15px;">Renewable Shift</h3>
+                <p>Cutting fossil fuels means switching to cleaner energy - at every scale, from your home to the grid. Three shifts anyone can push for:</p>
+                <ul>
+                    <li>Solar for homes and schools</li>
+                    <li>Public support for wind and hydro</li>
+                    <li>Switching daily habits to LED and efficient appliances</li>
+                </ul>
+            </div>
+
+            <div class="lush-card">
+                <img src="images/mission3.jpg" alt="A city street with cyclists using dedicated bike lanes">
+                <h3 style="color: var(--emerald); margin-top: 15px;">Everyday Action</h3>
+                <p>Climate action isn't just for governments. Small daily choices - how we travel, what we eat, what we throw away - add up fast when a whole community moves together.</p>
+            </div>
+
+        </section>
+
+        <section class="portal-section">
+            <h2>Explore Our Angles</h2>
+            <p>Each of us explored a different piece of the climate puzzle. Pick an angle to dive in.</p>
+            <div class="portal-links">
+                <a href="content_ST1.html" class="btn-node">Water &amp; Climate</a>
+                <a href="content_ST2.html" class="btn-node">Transport &amp; Travel</a>
+                <a href="content_ST3.html" class="btn-node">Nature &amp; Green Spaces</a>
+                <a href="content_ST4.html" class="btn-node">Energy at Home</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-section">
+                <h3>Student Details</h3>
+                <p>Yohan Nimneth Hewa Singappulige</p>
+                <p>20250247 - Student 1</p>
+            </div>
+            <div class="footer-section">
+                <h3>Documentation</h3>
+                <ul>
+                    <li><a href="pageEditor_ST1.html">Page Editor</a></li>
+                    <li><a href="validation_ST1.html">Validation &amp; Accessibility</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>SPARK</h3>
+                <p>SDG 13: Climate Action</p>
+                <p>Web Design &amp; Development . 2026</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SPARK Team . University of Westminster / IIT</p>
+        </div>
+    </footer>
+
+</body>
+</html>

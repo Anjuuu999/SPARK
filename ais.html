@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Impact Simulator | SPARK</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            background: linear-gradient(rgba(6, 78, 59, 0.55), rgba(6, 78, 59, 0.55)),
+                        url('images/bg-low.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transition: background-image 0.6s ease;
+        }
+
+        .ais-intro {
+            text-align: center;
+            padding: 50px 8% 20px;
+            color: var(--white);
+        }
+        .ais-intro h1 { color: var(--white); font-size: 2.6rem; }
+        .ais-intro p { max-width: 650px; margin: 10px auto; font-size: 1.05rem; }
+
+        .top-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            padding: 20px 8% 15px;
+        }
+
+        .bottom-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 0 8% 40px;
+        }
+
+        .top-row .action-card img { height: 240px; }
+        .top-row .card-body h3 { font-size: 1.4rem; }
+
+        @media (max-width: 900px) {
+            .top-row, .bottom-row { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 500px) {
+            .top-row, .bottom-row { grid-template-columns: 1fr; }
+        }
+
+        .action-card {
+            background: var(--white);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 3px solid transparent;   
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .action-card:hover { transform: translateY(-6px); }
+        .action-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 0; }
+        .card-body { padding: 18px; }
+        .card-body h3 { color: var(--deep-forest); margin-bottom: 6px; font-size: 1.15rem; }
+        .card-body p { font-size: 0.9rem; color: var(--text-main); margin-bottom: 10px; }
+        .points { font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--emerald); font-size: 0.95rem; }
+
+        .action-card.selected {
+            border: 3px solid var(--emerald);   
+            background: #f0fdf9;
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.35);
+        }
+        .action-card.selected .card-body h3::after {
+            content: " ✓";
+            color: var(--emerald);
+        }
+
+        .feedback-panel {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        .feedback-panel h2 { color: var(--deep-forest); }
+        .score-line { font-size: 1.1rem; margin: 8px 0; }
+        .score-line strong { color: var(--emerald); font-size: 1.3rem; }
+        #impact-level {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin: 12px 0;
+        }
+        #impact-message { color: var(--text-main); }
+        .reset-btn {
+            margin-top: 16px;
+            padding: 10px 26px;
+            background: var(--earth);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .reset-btn:hover { background: var(--deep-forest); }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="SPARK logo, a flame igniting climate action">
+            <span class="brand">SPAR<span class="k">K</span></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="ais.html" class="active-page">Action Simulator</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="ais-intro">
+            <h1>Action Impact Simulator</h1>
+            <p>Pick the climate actions you'd actually commit to. Watch your impact score climb - and the world behind you change with it.</p>
+        </section>
+
+        <section class="top-row">
+
+            <div class="action-card" data-points="5" onclick="toggleCard(this)">
+                <img src="images/image6.jpg" alt="Hands planting a young tree in soil">
+                <div class="card-body">
+                    <h3>Plant a Tree</h3>
+                    <p>Support reforestation or plant your own. Trees are one of the cheapest ways to pull CO2 from the air.</p>
+                    <span class="points">Impact: 5 points</span>
+                </div>
+            </div>
+
+            <div class="action-card" data-points="4" onclick="toggleCard(this)">
+                <img src="images/image2.jpg" alt="A public bus picking up passengers">
+                <div class="card-body">
+                    <h3>Use Public Transport</h3>
+                    <p>Take the bus or train instead of driving. One full bus takes dozens of cars off the road.</p>
+                    <span class="points">Impact: 4 points</span>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="bottom-row">
+
+            <div class="action-card" data-points="3" onclick="toggleCard(this)">
+                <img src="images/image1.jpg" alt="A person cycling through a city street">
+                <div class="card-body">
+                    <h3>Cycle Short Trips</h3>
+                    <p>Swap the car for a bike on trips under 3km. Zero emissions, plus it keeps you fit.</p>
+                    <span class="points">Impact: 3 points</span>
+                </div>
+            </div>
+
+            <div class="action-card" data-points="3" onclick="toggleCard(this)">
+                <img src="images/image4.jpg" alt="A plate of fresh vegetables and greens">
+                <div class="card-body">
+                    <h3>Eat More Plant-Based</h3>
+                    <p>Cut red meat to a couple of days a week. Meat is one of the heaviest sources of emissions.</p>
+                    <span class="points">Impact: 3 points</span>
+                </div>
+            </div>
+
+            <div class="action-card" data-points="2" onclick="toggleCard(this)">
+                <img src="images/image3.jpg" alt="An energy-saving LED light bulb">
+                <div class="card-body">
+                    <h3>Switch to LED Bulbs</h3>
+                    <p>LEDs use around 80% less power than old bulbs and last far longer.</p>
+                    <span class="points">Impact: 2 points</span>
+                </div>
+            </div>
+
+            <div class="action-card" data-points="2" onclick="toggleCard(this)">
+                <img src="images/image5.jpg" alt="A reusable water bottle">
+                <div class="card-body">
+                    <h3>Ditch Single-Use Plastic</h3>
+                    <p>Carry a reusable bottle and bag. Less plastic made means less fossil fuel burned.</p>
+                    <span class="points">Impact: 2 points</span>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="feedback-panel">
+            <h2>Your Impact</h2>
+            <p class="score-line">Actions selected: <strong id="count-selected">0</strong></p>
+            <p class="score-line">Total impact score: <strong id="total-score">0</strong></p>
+            <p id="impact-level" style="color:#9ca3af;">Nothing selected yet</p>
+            <p id="impact-message">Start picking actions to see your climate impact grow.</p>
+            <button class="reset-btn" onclick="resetSimulator()">Reset</button>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-section">
+                <h3>Student Details</h3>
+                <p>Anjana Dodammullage</p>
+                <p>20251335 - Student 2</p>
+            </div>
+            <div class="footer-section">
+                <h3>Documentation</h3>
+                <ul>
+                    <li><a href="pageEditor_ST2.html">Page Editor</a></li>
+                    <li><a href="validation_ST2.html">Validation &amp; Accessibility</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>SPARK</h3>
+                <p>SDG 13: Climate Action</p>
+                <p>Web Design &amp; Development . 2026</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SPARK Team . University of Westminster / IIT</p>
+        </div>
+    </footer>
+
+    <script>
+        const countEl   = document.getElementById('count-selected');
+        const scoreEl   = document.getElementById('total-score');
+        const levelEl   = document.getElementById('impact-level');
+        const messageEl = document.getElementById('impact-message');
+
+        function toggleCard(card) {
+            card.classList.toggle('selected');  
+            updateFeedback();                     
+        }
+
+        function updateFeedback() {
+            const selected = document.querySelectorAll('.action-card.selected');
+
+            let total = 0;
+            selected.forEach(function (card) {
+                total += Number(card.dataset.points);  
+            });
+
+            countEl.textContent = selected.length;
+            scoreEl.textContent = total;
+
+            let level, colour, message, bg;
+            if (selected.length === 0) {
+                level = 'Nothing selected yet';
+                colour = '#9ca3af';
+                message = 'Start picking actions to see your climate impact grow.';
+                bg = 'images/bg-low.jpg';
+            } else if (total <= 8) {
+                level = 'Low Impact';
+                colour = '#f59e0b';
+                message = 'A start - but the planet needs more. Pick a few bigger actions.';
+                bg = 'images/bg-low.jpg';
+            } else if (total <= 15) {
+                level = 'Medium Impact';
+                colour = '#10b981';
+                message = 'Solid effort. These habits genuinely add up over a year.';
+                bg = 'images/bg-med.jpg';
+            } else {
+                level = 'High Impact';
+                colour = '#064e3b';
+                message = 'Huge. If everyone did this, the change would be massive.';
+                bg = 'images/bg-high.jpg';
+            }
+
+            levelEl.textContent = level;
+            levelEl.style.color = colour;
+            messageEl.textContent = message;
+
+            document.body.style.backgroundImage =
+                'linear-gradient(rgba(6, 78, 59, 0.55), rgba(6, 78, 59, 0.55)), url(' + bg + ')';
+        }
+
+        function resetSimulator() {
+            document.querySelectorAll('.action-card.selected').forEach(function (card) {
+                card.classList.remove('selected');
+            });
+            updateFeedback();
+        }
+    </script>
+
+</body>
+</html>
