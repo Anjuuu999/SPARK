@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport &amp; Travel | SPARK</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .content-hero {
+            position: relative;
+            height: 55vh;
+            min-height: 380px;
+            background: linear-gradient(rgba(6, 78, 59, 0.65), rgba(6, 78, 59, 0.65)),
+                        url('images/content2-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 8%;
+        }
+        .content-hero h1 {
+            color: var(--white);
+            font-size: 3.2rem;
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+        .content-hero p {
+            font-size: 1.15rem;
+            max-width: 620px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .jump-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 25px 8%;
+            background: var(--white);
+            border-bottom: 1px solid rgba(6, 78, 59, 0.08);
+        }
+        .jump-nav a {
+            padding: 8px 18px;
+            border-radius: 50px;
+            background: var(--leaf-soft);
+            color: var(--deep-forest);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: 0.3s;
+        }
+        .jump-nav a:hover {
+            background: var(--emerald);
+            color: var(--white);
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 8% 30px;
+        }
+        .content-section h2 {
+            font-size: 2rem;
+            color: var(--deep-forest);
+            margin-bottom: 18px;
+            border-left: 5px solid var(--emerald);
+            padding-left: 15px;
+        }
+        .content-section p {
+            font-size: 1.03rem;
+            margin-bottom: 16px;
+        }
+        .content-section ul {
+            margin: 10px 0 20px 20px;
+            line-height: 1.9;
+        }
+
+        .content-img {
+            margin: 20px 0;
+            border-radius: 16px;
+            border: 1px solid rgba(6, 78, 59, 0.1);
+            box-shadow: 0 8px 24px rgba(6, 78, 59, 0.12);
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .sources {
+            max-width: 900px;
+            margin: 30px auto 80px;
+            padding: 30px 8%;
+            background: var(--leaf-soft);
+            border-radius: 20px;
+        }
+        .sources h2 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        .sources ul { margin-left: 20px; }
+        .sources li { font-size: 0.9rem; margin: 6px 0; }
+
+        .top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--emerald);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.5);
+            transition: 0.3s;
+            z-index: 999;
+        }
+        .top-btn:hover {
+            background: var(--deep-forest);
+            transform: translateY(-4px);
+            color: var(--white);
+        }
+
+        @media (max-width: 700px) {
+            .content-hero h1 { font-size: 2.2rem; }
+            .content-hero p { font-size: 1rem; }
+            .content-section h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="SPARK logo">
+            <span class="brand">SPAR<span class="k">K</span></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="ais.html">Action Simulator</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="content-hero">
+            <div>
+                <h1>Transport &amp; Travel</h1>
+                <p>The everyday climate fight most people never notice.</p>
+            </div>
+        </section>
+
+        <nav class="jump-nav" aria-label="Page sections">
+            <a href="#scale">Why it matters</a>
+            <a href="#commute">Daily commute</a>
+            <a href="#flights">Flights</a>
+            <a href="#local">Sri Lanka</a>
+            <a href="#action">Take action</a>
+        </nav>
+
+        <section class="content-section" id="scale">
+            <h2>Why transport matters</h2>
+            <img class="content-img" src="images/content2-scale.jpg" alt="A packed parking lot showing thousands of cars from above">
+            <p>Transport puts out around 16% of global greenhouse gas emissions each year, making it the third-largest polluting sector on the planet. Only power generation and manufacturing come out worse (Cargoson, 2025).</p>
+            <p>Road transport does most of the damage. Cars and vans alone push out about 45% of the sector's emissions, and freight trucks add another 30%. Ships and planes each add roughly 11% (Our World in Data, 2020).</p>
+            <p>To put the scale in perspective, if global shipping was its own country, it would rank as the sixth-biggest emitter on Earth (World Economic Forum, 2018).</p>
+        </section>
+
+        <section class="content-section" id="commute">
+            <h2>The daily commute</h2>
+            <img class="content-img" src="images/content2-commute.jpg" alt="Passengers boarding a public city bus during a busy commute">
+            <p>How you get to work or class every day matters more than most people think. The gap between the highest and lowest options is huge.</p>
+            <p>A petrol car emits around 170g of CO2 per passenger kilometre. A regular bus drops that to about 97g. A national train comes in at just 35g. Cycling sits between 16 and 50g depending on your diet and how efficiently you ride (Our World in Data, 2023).</p>
+            <p>The takeaway is simple. Swapping a car for a bike on short trips cuts your travel emissions by roughly 75%. Taking a train instead of driving for medium journeys cuts them by around 80%.</p>
+        </section>
+
+        <section class="content-section" id="flights">
+            <h2>The flight problem</h2>
+            <img class="content-img" src="images/content2-flight.jpg" alt="A commercial airplane taking off with a fuel trail behind it">
+            <p>Flying is where the numbers get ugly. A single domestic flight emits 246g of CO2 per kilometre per passenger, which is more than any car on the road (Our World in Data, 2023).</p>
+            <p>That number is also worse than it looks. When planes burn fuel at cruising altitude, the emissions trap extra heat compared to the same emissions released at ground level. UK government reporting applies a 1.9x multiplier to flight emissions to reflect this.</p>
+            <p>For a 500km trip, driving alone emits around 85kg of CO2. Flying the same route emits 123kg, roughly a third higher. Trains and long-distance buses beat both by a wide margin.</p>
+        </section>
+
+        <section class="content-section" id="local">
+            <h2>The Sri Lanka picture</h2>
+            <img class="content-img" src="images/content2-colombo.jpg" alt="Heavy traffic on a main road in Colombo, Sri Lanka">
+            <p>Colombo was ranked the fifth most traffic-congested city in the world in 2025. The average commuter now spends around 60 minutes on a one-way trip, and peak-hour speeds can drop as low as 12 km/h (LAUGFS Eco Sri, 2026).</p>
+            <p>By the end of 2025, Sri Lanka had over 8.8 million registered vehicles (Department of Motor Traffic, 2025). Vehicle emissions are responsible for more than 60% of Colombo's air pollution, and stop-start traffic makes it worse. Studies show congested driving produces 40 to 60% more emissions than free-flowing traffic.</p>
+            <p>For students commuting into Colombo from suburbs like Panadura, a realistic route is often a mix of ride-hailing to the nearest station and public transport from there. It is not perfect, but every trip taken on a bus or train instead of solo in a car cuts personal emissions significantly.</p>
+        </section>
+
+        <section class="content-section" id="action">
+            <h2>Small choices, real impact</h2>
+            <p>Transport is one of the few areas where individual action actually adds up. A few small habits from more people would move the needle.</p>
+            <ul>
+                <li>Take the bus or train for regular commutes. Even swapping in 2 to 3 days a week makes a real dent.</li>
+                <li>Walk or cycle for any trip under 3 kilometres. Cheaper, healthier, zero emissions.</li>
+                <li>Carpool with classmates or coworkers heading in the same direction.</li>
+                <li>Combine errands into one trip instead of separate journeys.</li>
+                <li>Choose trains or buses over short-haul flights for domestic travel where possible.</li>
+                <li>Support better public transport and cycle infrastructure locally. Infrastructure decides what is possible.</li>
+            </ul>
+        </section>
+
+        <section class="sources">
+            <h2>Sources</h2>
+            <ul>
+                <li>Our World in Data (2023). Which form of transport has the smallest carbon footprint? <a href="https://ourworldindata.org/travel-carbon-footprint" target="_blank">ourworldindata.org/travel-carbon-footprint</a></li>
+                <li>Our World in Data (2020). Cars, planes, trains: where do CO2 emissions from transport come from? <a href="https://ourworldindata.org/co2-emissions-from-transport" target="_blank">ourworldindata.org/co2-emissions-from-transport</a></li>
+                <li>Cargoson (2025). How Much CO2 Does the Transportation Sector Emit? <a href="https://www.cargoson.com/en/research/transportation-sector-co2-emissions" target="_blank">cargoson.com</a></li>
+                <li>LAUGFS Eco Sri (2026). How Traffic Congestion in Colombo Is Silently Affecting Your Health. <a href="https://www.ecosri.lk/how-traffic-congestion-in-colombo-is-silently-affecting-your-health/" target="_blank">ecosri.lk</a></li>
+                <li>Department of Motor Traffic Sri Lanka (2025). Vehicle Population 2013 to 2025. <a href="https://dmt.gov.lk" target="_blank">dmt.gov.lk</a></li>
+                <li>World Economic Forum (2018). If shipping were a country, it would be the world's sixth-biggest greenhouse gas emitter. <a href="https://www.weforum.org" target="_blank">weforum.org</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+    <a href="#top" class="top-btn" aria-label="Back to top">&uarr;</a>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-section">
+                <h3>Student Details</h3>
+                <p>Anjana Dodammullage</p>
+                <p>20251335 - Student 2</p>
+            </div>
+            <div class="footer-section">
+                <h3>Documentation</h3>
+                <ul>
+                    <li><a href="pageEditor_ST2.html">Page Editor</a></li>
+                    <li><a href="validation_ST2.html">Validation &amp; Accessibility</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>SPARK</h3>
+                <p>SDG 13: Climate Action</p>
+                <p>Web Design &amp; Development . 2026</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SPARK Team . University of Westminster / IIT</p>
+        </div>
+    </footer>
+
+</body>
+</html>
