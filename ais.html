@@ -44,7 +44,7 @@
         }
 
         .top-row .action-card img { height: 240px; }
-        .top-row .card-body h3 { font-size: 1.4rem; }
+        .top-row .card-body h2 { font-size: 1.4rem; }
 
         @media (max-width: 900px) {
             .top-row, .bottom-row { grid-template-columns: repeat(2, 1fr); }
@@ -65,7 +65,7 @@
         .action-card:hover { transform: translateY(-6px); }
         .action-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 0; }
         .card-body { padding: 18px; }
-        .card-body h3 { color: var(--deep-forest); margin-bottom: 6px; font-size: 1.15rem; }
+        .card-body h2 { color: var(--deep-forest); margin-bottom: 6px; font-size: 1.15rem; }
         .card-body p { font-size: 0.9rem; color: var(--text-main); margin-bottom: 10px; }
         .points { font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--emerald); font-size: 0.95rem; }
 
@@ -75,7 +75,7 @@
             transform: translateY(-6px);
             box-shadow: 0 12px 30px rgba(16, 185, 129, 0.35);
         }
-        .action-card.selected .card-body h3::after {
+        .action-card.selected .card-body h2::after {
             content: " ✓";
             color: var(--emerald);
         }
@@ -147,7 +147,7 @@
             <div class="action-card" data-points="5" onclick="toggleCard(this)">
                 <img src="images/image6.jpg" alt="Hands planting a young tree in soil">
                 <div class="card-body">
-                    <h3>Plant a Tree</h3>
+                    <h2>Plant a Tree</h2>
                     <p>Support reforestation or plant your own. Trees are one of the cheapest ways to pull CO2 from the air.</p>
                     <span class="points">Impact: 5 points</span>
                 </div>
@@ -156,7 +156,7 @@
             <div class="action-card" data-points="4" onclick="toggleCard(this)">
                 <img src="images/image2.jpg" alt="A public bus picking up passengers">
                 <div class="card-body">
-                    <h3>Use Public Transport</h3>
+                    <h2>Use Public Transport</h2>
                     <p>Take the bus or train instead of driving. One full bus takes dozens of cars off the road.</p>
                     <span class="points">Impact: 4 points</span>
                 </div>
@@ -169,7 +169,7 @@
             <div class="action-card" data-points="3" onclick="toggleCard(this)">
                 <img src="images/image1.jpg" alt="A person cycling through a city street">
                 <div class="card-body">
-                    <h3>Cycle Short Trips</h3>
+                    <h2>Cycle Short Trips</h2>
                     <p>Swap the car for a bike on trips under 3km. Zero emissions, plus it keeps you fit.</p>
                     <span class="points">Impact: 3 points</span>
                 </div>
@@ -178,7 +178,7 @@
             <div class="action-card" data-points="3" onclick="toggleCard(this)">
                 <img src="images/image4.jpg" alt="A plate of fresh vegetables and greens">
                 <div class="card-body">
-                    <h3>Eat More Plant-Based</h3>
+                    <h2>Eat More Plant-Based</h2>
                     <p>Cut red meat to a couple of days a week. Meat is one of the heaviest sources of emissions.</p>
                     <span class="points">Impact: 3 points</span>
                 </div>
@@ -187,7 +187,7 @@
             <div class="action-card" data-points="2" onclick="toggleCard(this)">
                 <img src="images/image3.jpg" alt="An energy-saving LED light bulb">
                 <div class="card-body">
-                    <h3>Switch to LED Bulbs</h3>
+                    <h2>Switch to LED Bulbs</h2>
                     <p>LEDs use around 80% less power than old bulbs and last far longer.</p>
                     <span class="points">Impact: 2 points</span>
                 </div>
@@ -196,7 +196,7 @@
             <div class="action-card" data-points="2" onclick="toggleCard(this)">
                 <img src="images/image5.jpg" alt="A reusable water bottle">
                 <div class="card-body">
-                    <h3>Ditch Single-Use Plastic</h3>
+                    <h2>Ditch Single-Use Plastic</h2>
                     <p>Carry a reusable bottle and bag. Less plastic made means less fossil fuel burned.</p>
                     <span class="points">Impact: 2 points</span>
                 </div>
