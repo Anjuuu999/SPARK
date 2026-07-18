@@ -13,7 +13,7 @@
 
     <style>
         body {
-            background: linear-gradient(rgba(6, 78, 59, 0.55), rgba(6, 78, 59, 0.55)),
+            background: linear-gradient(rgba(7, 69, 52, 0.55), rgba(7, 69, 52, 0.55)),
                         url('images/bg-low.jpg');
             background-size: cover;
             background-position: center;
@@ -71,9 +71,9 @@
 
         .action-card.selected {
             border: 3px solid var(--emerald);   
-            background: #f0fdf9;
+            background: #eaf6f1;
             transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.35);
+            box-shadow: 0 12px 30px rgba(46, 204, 113, 0.35);
         }
         .action-card.selected .card-body h2::after {
             content: " ✓";
@@ -115,22 +115,23 @@
     </style>
 </head>
 
-<body>
+<body class="page-simulator">
 
     <header>
-        <div class="logo">
-            <img src="images/logo.png" alt="SPARK logo, a flame igniting climate action">
-            <span class="brand">SPAR<span class="k">K</span></span>
+        <div class="logo-group">
+            <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+            <div class="logo">SPAR<span class="k">K</span></div>
         </div>
         <nav>
             <ul>
                 <li><a href="home.html">Home</a></li>
-                <li><a href="ais.html" class="active-page">Action Simulator</a></li>
+                <li><a href="ais.html" class="active-page">Simulator</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="profile.html">Profile</a></li>
                 <li><a href="feedback.html">Feedback</a></li>
                 <li><a href="team.html">Team</a></li>
                 <li><a href="sitemap.html">Sitemap</a></li>
+                <span></span>
             </ul>
         </nav>
     </header>
@@ -216,27 +217,33 @@
     </main>
 
     <footer>
-        <div class="footer-inner">
+        <div class="footer-container">
             <div class="footer-section">
-                <h3>Student Details</h3>
-                <p>Anjana Dodammullage</p>
-                <p>20251335 - Student 2</p>
+                <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
+                <p>Empowering individuals to take climate action for a sustainable future.</p>
             </div>
             <div class="footer-section">
-                <h3>Documentation</h3>
+                <h3>Coursework</h3>
                 <ul>
                     <li><a href="pageEditor_ST2.html">Page Editor</a></li>
-                    <li><a href="validation_ST2.html">Validation &amp; Accessibility</a></li>
+                    <li><a href="validation_ST2.html">Validation Page</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>SPARK</h3>
-                <p>SDG 13: Climate Action</p>
-                <p>Web Design &amp; Development . 2026</p>
+                <h3>Student Info</h3>
+                <p>Name: Anjana Dodammullage</p>
+                <p>Student ID: 20251335</p>
+                <p>Role: Student 2</p>
+            </div>
+            <div class="footer-section">
+                <h3>Compliance</h3>
+                <ul>
+                    <li><a href="#">Accessibility Statement</a></li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 SPARK Team . University of Westminster / IIT</p>
+            <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
         </div>
     </footer>
 
@@ -275,12 +282,12 @@
                 bg = 'images/bg-low.jpg';
             } else if (total <= 15) {
                 level = 'Medium Impact';
-                colour = '#10b981';
+                colour = '#2ecc71';
                 message = 'Solid effort. These habits genuinely add up over a year.';
                 bg = 'images/bg-med.jpg';
             } else {
                 level = 'High Impact';
-                colour = '#064e3b';
+                colour = '#074534';
                 message = 'Huge. If everyone did this, the change would be massive.';
                 bg = 'images/bg-high.jpg';
             }
@@ -290,7 +297,7 @@
             messageEl.textContent = message;
 
             document.body.style.backgroundImage =
-                'linear-gradient(rgba(6, 78, 59, 0.55), rgba(6, 78, 59, 0.55)), url(' + bg + ')';
+                'linear-gradient(rgba(7, 69, 52, 0.55), rgba(7, 69, 52, 0.55)), url(' + bg + ')';
         }
 
         function resetSimulator() {

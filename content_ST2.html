@@ -14,9 +14,9 @@
     <style>
         .content-hero {
             position: relative;
-            height: 55vh;
-            min-height: 380px;
-            background: linear-gradient(rgba(6, 78, 59, 0.65), rgba(6, 78, 59, 0.65)),
+            min-height: 55vh;
+            padding: 130px 8% 40px;
+            background: linear-gradient(rgba(7, 69, 52, 0.65), rgba(7, 69, 52, 0.65)),
                         url('images/content2-hero.jpg');
             background-size: cover;
             background-position: center;
@@ -25,7 +25,6 @@
             justify-content: center;
             text-align: center;
             color: var(--white);
-            padding: 0 8%;
         }
         .content-hero h1 {
             color: var(--white);
@@ -43,20 +42,20 @@
         .jump-nav {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
-            padding: 25px 8%;
+            padding: 12px 8%;
             background: var(--white);
-            border-bottom: 1px solid rgba(6, 78, 59, 0.08);
+            border-bottom: 1px solid rgba(7, 69, 52, 0.08);
         }
         .jump-nav a {
-            padding: 8px 18px;
+            padding: 6px 14px;
             border-radius: 50px;
             background: var(--leaf-soft);
             color: var(--deep-forest);
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
-            font-size: 0.88rem;
+            font-size: 0.8rem;
             transition: 0.3s;
         }
         .jump-nav a:hover {
@@ -68,6 +67,7 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 60px 8% 30px;
+            scroll-margin-top: 120px;
         }
         .content-section h2 {
             font-size: 2rem;
@@ -88,8 +88,8 @@
         .content-img {
             margin: 20px 0;
             border-radius: 16px;
-            border: 1px solid rgba(6, 78, 59, 0.1);
-            box-shadow: 0 8px 24px rgba(6, 78, 59, 0.12);
+            border: 1px solid rgba(7, 69, 52, 0.1);
+            box-shadow: 0 8px 24px rgba(7, 69, 52, 0.12);
             width: 100%;
             height: auto;
             display: block;
@@ -123,7 +123,7 @@
             justify-content: center;
             font-size: 1.4rem;
             font-weight: 700;
-            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.5);
+            box-shadow: 0 6px 18px rgba(46, 204, 113, 0.5);
             transition: 0.3s;
             z-index: 999;
         }
@@ -141,22 +141,23 @@
     </style>
 </head>
 
-<body id="top">
+<body id="top" class="page-content">
 
     <header>
-        <div class="logo">
-            <img src="images/logo.png" alt="SPARK logo">
-            <span class="brand">SPAR<span class="k">K</span></span>
+        <div class="logo-group">
+            <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+            <div class="logo">SPAR<span class="k">K</span></div>
         </div>
         <nav>
             <ul>
                 <li><a href="home.html">Home</a></li>
-                <li><a href="ais.html">Action Simulator</a></li>
+                <li><a href="ais.html">Simulator</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="profile.html">Profile</a></li>
                 <li><a href="feedback.html">Feedback</a></li>
                 <li><a href="team.html">Team</a></li>
                 <li><a href="sitemap.html">Sitemap</a></li>
+                <span></span>
             </ul>
         </nav>
     </header>
@@ -240,27 +241,33 @@
     <a href="#top" class="top-btn" aria-label="Back to top">&uarr;</a>
 
     <footer>
-        <div class="footer-inner">
+        <div class="footer-container">
             <div class="footer-section">
-                <h3>Student Details</h3>
-                <p>Anjana Dodammullage</p>
-                <p>20251335 - Student 2</p>
+                <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
+                <p>Empowering individuals to take climate action for a sustainable future.</p>
             </div>
             <div class="footer-section">
-                <h3>Documentation</h3>
+                <h3>Coursework</h3>
                 <ul>
                     <li><a href="pageEditor_ST2.html">Page Editor</a></li>
-                    <li><a href="validation_ST2.html">Validation &amp; Accessibility</a></li>
+                    <li><a href="validation_ST2.html">Validation Page</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>SPARK</h3>
-                <p>SDG 13: Climate Action</p>
-                <p>Web Design &amp; Development . 2026</p>
+                <h3>Student Info</h3>
+                <p>Name: Anjana Dodammullage</p>
+                <p>Student ID: 20251335</p>
+                <p>Role: Student 2</p>
+            </div>
+            <div class="footer-section">
+                <h3>Compliance</h3>
+                <ul>
+                    <li><a href="#">Accessibility Statement</a></li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 SPARK Team . University of Westminster / IIT</p>
+            <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
         </div>
     </footer>
 

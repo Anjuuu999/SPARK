@@ -83,7 +83,7 @@
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(6, 78, 59, 0.96);
+            background: rgba(7, 69, 52, 0.96);
             z-index: 2000;
             align-items: center;
             justify-content: center;
@@ -172,22 +172,23 @@
     </style>
 </head>
 
-<body>
+<body class="page-gallery">
 
     <header>
-        <div class="logo">
-            <img src="images/logo.png" alt="SPARK logo">
-            <span class="brand">SPAR<span class="k">K</span></span>
+        <div class="logo-group">
+            <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+            <div class="logo">SPAR<span class="k">K</span></div>
         </div>
         <nav>
             <ul>
                 <li><a href="home.html">Home</a></li>
-                <li><a href="ais.html">Action Simulator</a></li>
+                <li><a href="ais.html">Simulator</a></li>
                 <li><a href="gallery.html" class="active-page">Gallery</a></li>
                 <li><a href="profile.html">Profile</a></li>
                 <li><a href="feedback.html">Feedback</a></li>
                 <li><a href="team.html">Team</a></li>
                 <li><a href="sitemap.html">Sitemap</a></li>
+                <span></span>
             </ul>
         </nav>
     </header>
@@ -238,8 +239,8 @@
 
             <div class="modal-controls">
                 <small>Change theme</small>
-                <button class="pill-btn" onclick="setTheme('#064e3b','#ffffff')">Deep Forest</button>
-                <button class="pill-btn" onclick="setTheme('#ecfdf5','#1f2937')">Soft Leaf</button>
+                <button class="pill-btn" onclick="setTheme('#074534','#ffffff')">Deep Forest</button>
+                <button class="pill-btn" onclick="setTheme('#eaf6f1','#1f2937')">Soft Leaf</button>
                 <button class="pill-btn" onclick="setTheme('#1f2937','#ffffff')">Night Mode</button>
             </div>
 
@@ -255,27 +256,33 @@
     </div>
 
     <footer>
-        <div class="footer-inner">
+        <div class="footer-container">
             <div class="footer-section">
-                <h3>Student Details</h3>
-                <p>Yohan Nimneth Hewa Singappulige</p>
-                <p>20250247 - Student 1</p>
+                <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
+                <p>Empowering individuals to take climate action for a sustainable future.</p>
             </div>
             <div class="footer-section">
-                <h3>Documentation</h3>
+                <h3>Coursework</h3>
                 <ul>
                     <li><a href="pageEditor_ST1.html">Page Editor</a></li>
-                    <li><a href="validation_ST1.html">Validation &amp; Accessibility</a></li>
+                    <li><a href="validation_ST1.html">Validation Page</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>SPARK</h3>
-                <p>SDG 13: Climate Action</p>
-                <p>Web Design &amp; Development . 2026</p>
+                <h3>Student Info</h3>
+                <p>Name: Yohan Nimneth Hewa Singappulige</p>
+                <p>Student ID: 20250247</p>
+                <p>Role: Student 1</p>
+            </div>
+            <div class="footer-section">
+                <h3>Compliance</h3>
+                <ul>
+                    <li><a href="#">Accessibility Statement</a></li>
+                </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 SPARK Team . University of Westminster / IIT</p>
+            <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
         </div>
     </footer>
 
