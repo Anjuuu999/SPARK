@@ -155,7 +155,7 @@ nav ul li a.active-page { color: var(--accent-highlight); }
 nav ul:hover li a.active-page { color: black; }
 
 /* Nav slider indicator */
-nav span {
+nav .nav-slider {
     position: absolute;
     top: 0;
     left: 0;
@@ -169,22 +169,22 @@ nav span {
 }
 
 /* Slider hover positions */
-nav ul li:nth-child(1):hover ~ span { left: 0px; width: 76px; }
-nav ul li:nth-child(2):hover ~ span { left: 76px; width: 99px; }
-nav ul li:nth-child(3):hover ~ span { left: 180px; width: 80px; }
-nav ul li:nth-child(4):hover ~ span { left: 263px; width: 80px; }
-nav ul li:nth-child(5):hover ~ span { left: 345px; width: 100px; }
-nav ul li:nth-child(6):hover ~ span { left: 449px; width: 70px; }
-nav ul li:nth-child(7):hover ~ span { left: 520px; width: 89px; }
+nav ul li:nth-child(1):hover ~ .nav-slider { left: 0px; width: 76px; }
+nav ul li:nth-child(2):hover ~ .nav-slider { left: 76px; width: 99px; }
+nav ul li:nth-child(3):hover ~ .nav-slider { left: 180px; width: 80px; }
+nav ul li:nth-child(4):hover ~ .nav-slider { left: 263px; width: 80px; }
+nav ul li:nth-child(5):hover ~ .nav-slider { left: 345px; width: 100px; }
+nav ul li:nth-child(6):hover ~ .nav-slider { left: 449px; width: 70px; }
+nav ul li:nth-child(7):hover ~ .nav-slider { left: 520px; width: 89px; }
 
 /* Slider default positions per page */
-body.page-home nav span { left: 0px; width: 76px; }
-body.page-simulator nav span { left: 76px; width: 99px; }
-body.page-gallery nav span { left: 180px; width: 80px; }
-body.page-profile nav span { left: 263px; width: 80px; }
-body.page-feedback nav span { left: 345px; width: 100px; }
-body.page-team nav span { left: 449px; width: 70px; }
-body.page-sitemap nav span { left: 520px; width: 89px; }
+body.page-home nav .nav-slider { left: 0px; width: 76px; }
+body.page-simulator nav .nav-slider { left: 76px; width: 99px; }
+body.page-gallery nav .nav-slider { left: 180px; width: 80px; }
+body.page-profile nav .nav-slider { left: 263px; width: 80px; }
+body.page-feedback nav .nav-slider { left: 345px; width: 100px; }
+body.page-team nav .nav-slider { left: 449px; width: 70px; }
+body.page-sitemap nav .nav-slider { left: 520px; width: 89px; }
 
 /* Home page hero */
 .main-topic {
@@ -368,7 +368,7 @@ footer {
 @media (max-width: 1100px) {
     header { padding: 15px 25px; }
     nav { position: static; transform: none; }
-    nav span { display: none; }
+    nav .nav-slider { display: none; }
     .mission-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-container, .footer-inner { grid-template-columns: repeat(2, 1fr); }
 }
