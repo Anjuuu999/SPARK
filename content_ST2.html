@@ -39,28 +39,63 @@
             opacity: 0.95;
         }
 
-        .jump-nav {
+        .page-nav {
+            position: static !important;
+            float: none !important;
+            top: auto !important;
+            left: auto !important;
+            right: auto !important;
+            transform: none !important;
+            display: block;
+            background: var(--white);
+            border: 1px solid rgba(7, 69, 52, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(7, 69, 52, 0.05);
+            padding: 20px 30px;
+            margin: 0 auto 45px auto;
+            max-width: 900px;
+            width: 90%;
+            text-align: center;
+        }
+        .page-nav h2 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 14px 0;
+            color: var(--deep-forest);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            text-align: center;
+        }
+        .page-nav ul {
             display: flex;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             flex-wrap: wrap;
-            padding: 12px 8%;
-            background: var(--white);
-            border-bottom: 1px solid rgba(7, 69, 52, 0.08);
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            list-style: none;
         }
-        .jump-nav a {
-            padding: 6px 14px;
+        .page-nav ul li {
+            margin: 0;
+        }
+        .page-nav ul li a {
+            padding: 8px 16px;
             border-radius: 50px;
             background: var(--leaf-soft);
             color: var(--deep-forest);
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            text-decoration: none;
+            display: inline-block;
             transition: 0.3s;
         }
-        .jump-nav a:hover {
+        .page-nav ul li a:hover {
             background: var(--emerald);
             color: var(--white);
+            transform: translateY(-2px);
         }
 
         .content-section {
@@ -171,12 +206,15 @@
             </div>
         </section>
 
-        <nav class="jump-nav" aria-label="Page sections">
-            <a href="#scale">Why it matters</a>
-            <a href="#commute">Daily commute</a>
-            <a href="#flights">Flights</a>
-            <a href="#local">Sri Lanka</a>
-            <a href="#action">Take action</a>
+        <nav class="page-nav" aria-label="Page sections">
+            <h2>Jump to a section</h2>
+            <ul>
+                <li><a href="#scale">Why it matters</a></li>
+                <li><a href="#commute">Daily commute</a></li>
+                <li><a href="#flights">Flights</a></li>
+                <li><a href="#local">Sri Lanka</a></li>
+                <li><a href="#action">Take action</a></li>
+            </ul>
         </nav>
 
         <section class="content-section" id="scale">

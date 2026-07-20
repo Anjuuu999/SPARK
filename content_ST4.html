@@ -39,29 +39,60 @@
 			line-height: 1.7;
 		}
 
-		/* ===== Jump Nav Pills ===== */
-		.jump-nav-4 {
+		.page-nav {
+			position: static !important;
+			float: none !important;
+			top: auto !important;
+			left: auto !important;
+			right: auto !important;
+			transform: none !important;
+			display: block;
+			background: #ffffff;
+			border: 1px solid rgba(7, 69, 52, 0.1);
+			border-radius: 15px;
+			box-shadow: 0 4px 15px rgba(7, 69, 52, 0.05);
+			padding: 20px 30px;
+			margin: 0 auto 45px auto;
+			max-width: 900px;
+			width: 90%;
+			text-align: center;
+		}
+		.page-nav h2 {
+			font-size: 13px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin: 0 0 14px 0;
+			color: #074534;
+			font-family: 'Poppins', sans-serif;
+			font-weight: 700;
+			text-align: center;
+		}
+		.page-nav ul {
 			display: flex;
 			justify-content: center;
-			gap: 8px;
+			gap: 10px;
 			flex-wrap: wrap;
-			padding: 12px 8%;
-			background: #ffffff;
-			border-bottom: 1px solid rgba(7, 69, 52, 0.08);
-			margin: 0 0 40px 0;
+			width: 100%;
+			padding: 0;
+			margin: 0;
+			list-style: none;
 		}
-		.jump-nav-4 a {
-			padding: 6px 14px;
+		.page-nav ul li {
+			margin: 0;
+		}
+		.page-nav ul li a {
+			padding: 8px 16px;
 			border-radius: 50px;
 			background: #eaf6f1;
 			color: #074534;
 			font-family: 'Poppins', sans-serif;
 			font-weight: 600;
-			font-size: 0.8rem;
+			font-size: 0.85rem;
 			text-decoration: none;
 			transition: 0.3s;
+			display: inline-block;
 		}
-		.jump-nav-4 a:hover {
+		.page-nav ul li a:hover {
 			background: #2ecc71;
 			color: #ffffff;
 			transform: translateY(-2px);
@@ -183,11 +214,14 @@
 			<p>Every time we flip a switch or run a home appliance, we establish a direct link between our local lives and global atmospheric composition. Understanding this connection is vital for taking effective action against climate instability.</p>
 		</section>
 
-		<nav class="jump-nav-4" aria-label="Page sections">
-			<a href="#fossil-fuels">Fossil Fuels</a>
-			<a href="#appliances">Appliances</a>
-			<a href="#mitigation">Mitigation</a>
-			<a href="#renewables">Renewables</a>
+		<nav class="page-nav" aria-label="Page sections">
+			<h2>Jump to a section</h2>
+			<ul>
+				<li><a href="#fossil-fuels">Fossil Fuels</a></li>
+				<li><a href="#appliances">Appliances</a></li>
+				<li><a href="#mitigation">Mitigation</a></li>
+				<li><a href="#renewables">Renewables</a></li>
+			</ul>
 		</nav>
 
 		<div class="main-article">
