@@ -1,327 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | SPARK</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
+    <title>Spark</title>
     <link rel="stylesheet" href="style.css">
-
     <style>
-        .exhibit-intro {
+        .header-logo {
+            color: #074534 !important;
+
+        }
+
+        .page-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 120px 20px;
+            min-height: 100vh;
+            background-color: #eaf6f1;
+        }
+
+
+        .gallery-header {
             text-align: center;
-            padding: 60px 8% 20px;
-        }
-        .exhibit-intro h1 { font-size: 2.6rem; margin-bottom: 10px; }
-        .exhibit-intro p { max-width: 620px; margin: 0 auto; color: var(--text-main); }
-
-        .exhibit-wrap { padding: 30px 8% 80px; }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .photo-frame {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            cursor: pointer;
-            height: 340px;
-            box-shadow: var(--shadow);
-            background: var(--white);
-        }
-        .photo-frame img {
+            margin-bottom: 50px;
             width: 100%;
-            height: 100%;
+        }
+
+        .gallery-header h1 {
+            font-size: 3.5rem;
+            color: #074534;
+            margin: 0;
+        }
+
+        .gallery-header p {
+            color: black;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+
+        .gallery-card {
+            background-color: #0a1f14;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: transform 0.3s ease, border 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            border-color: #a5d6a7;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 180px;
             object-fit: cover;
-            border-radius: 0;
-            transition: transform 0.6s ease, filter 0.4s ease;
-        }
-        .photo-frame:hover img {
-            transform: scale(1.08);
-            filter: brightness(0.55);
+            display: block;
         }
 
-        .frame-label {
-            position: absolute;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            color: var(--white);
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 1.15rem;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-            z-index: 2;
-            pointer-events: none;
+
+        .gallery-card h2 {
+            background-color: #112b1c;
+            margin: 0;
+            padding: 15px;
+            font-size: 0.95rem;
+            text-align: center;
+            color: #a5d6a7;
+            font-weight: 400;
         }
 
-        .view-hint {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--emerald);
-            color: var(--white);
-            padding: 6px 14px;
-            border-radius: 50px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
+        nav span {
+            left: 180px;
+            width: 80px;
         }
-        .photo-frame:hover .view-hint { opacity: 1; }
 
-        #gallery-modal {
+
+        #extended-view {
             display: none;
             position: fixed;
-            inset: 0;
-            background: rgba(7, 69, 52, 0.96);
-            z-index: 2000;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            justify-content: center;
             align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-            overflow-y: auto;
         }
-        #gallery-modal.open { display: flex; }
 
-        .modal-inner {
-            max-width: 700px;
-            width: 100%;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 30px;
-            padding: 45px 40px;
+
+        #modal-container {
+            background-color: white;
+            color: black;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 90%;
             text-align: center;
-            color: var(--white);
-        }
-        .modal-inner h2 {
-            font-family: 'Poppins', sans-serif;
-            color: var(--emerald);
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-        }
-        .modal-inner p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 25px;
+            position: relative;
         }
 
-        .modal-controls {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin: 25px 0 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.15);
-        }
-        .modal-controls small {
+
+        #modal-img {
             width: 100%;
-            display: block;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 8px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .pill-btn {
-            padding: 10px 22px;
-            border: 2px solid rgba(255,255,255,0.5);
-            background: transparent;
-            color: var(--white);
-            cursor: pointer;
-            border-radius: 50px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: 0.3s;
-        }
-        .pill-btn:hover {
-            background: var(--white);
-            color: var(--deep-forest);
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
 
-        .close-btn {
-            margin-top: 15px;
-            padding: 12px 30px;
-            background: var(--emerald);
-            border: none;
-            color: var(--white);
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            border-radius: 50px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .close-btn:hover { background: var(--earth); }
 
-        @media (max-width: 600px) {
-            .modal-inner { padding: 30px 22px; }
-            .modal-inner h2 { font-size: 1.6rem; }
+        #closeModal {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
         }
-    </style>
+
+
+        .alt-font {
+            font-family: 'Courier New', monospace !important;
+        }
+
+        .alt-color {
+            background-color: #333 !important;
+            color: white !important;
+        }
+
+        .custom-controls {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+
+        .custom-controls button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    
+		.top-btn {
+			position: fixed;
+			bottom: 30px;
+			right: 30px;
+			width: 52px;
+			height: 52px;
+			border-radius: 50%;
+			background: #2ecc71;
+			color: #ffffff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.4rem;
+			font-weight: 700;
+			box-shadow: 0 6px 18px rgba(46, 204, 113, 0.5);
+			transition: 0.3s;
+			z-index: 999;
+			text-decoration: none;
+		}
+		.top-btn:hover {
+			background: #074534;
+			transform: translateY(-4px);
+			color: #ffffff;
+		}
+	</style>
 </head>
 
-<body class="page-gallery">
+<body id="top" class="page-gallery">
 
     <header>
-        <div class="logo-group">
-            <img src="images/logo.png" alt="SPARK logo" class="logo-img">
-            <div class="logo">SPAR<span class="k">K</span></div>
+    <div class="logo-group">
+        <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+        <div class="logo">SPAR<span class="k">K</span></div>
+    </div>
+    <nav>
+        <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="ais.html">Simulator</a></li>
+        <li><a href="gallery.html" class="active-page">Gallery</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+            <span></span>
+        </ul>
+    </nav>
+</header>
+
+    <main class="page-content">
+
+        <div class="gallery-header">
+            <h1>Gallery</h1>
+            <p>Click on an image to explore details and customize your view.</p>
         </div>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="ais.html">Simulator</a></li>
-                <li><a href="gallery.html" class="active-page">Gallery</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-                <li><a href="team.html">Team</a></li>
-                <li><a href="sitemap.html">Sitemap</a></li>
-                <span></span>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
+        <div class="gallery-container">
 
-        <section class="exhibit-intro">
-            <h1>Climate Gallery</h1>
-            <p>A visual look at what the climate crisis is doing and what pushing back looks like. Click any exhibit to open it and try changing the display.</p>
-        </section>
+            <div class="gallery-card" data-title="Melting Arctic Ice" data-info="Arctic sea ice is reaching record lows, affectng 
+            global sea levels and weather patterns.">
 
-        <section class="exhibit-wrap">
-            <div class="gallery-grid">
-
-                <div class="photo-frame" onclick="expandView('Amazon Rainforest', 'The Amazon absorbs around 2 billion tonnes of CO2 every year, making it one of the largest carbon sinks on Earth. Losing forest cover at the current pace flips that role from carbon sink to carbon source.')">
-                    <img src="images/gallery1.jpg" alt="Dense rainforest canopy viewed from above">
-                    <span class="view-hint">Click to expand</span>
-                    <p class="frame-label">Amazon Rainforest</p>
+                <div class="image-box">
+                    <img src="images/ICE.jpg" alt="A melting glacier">
                 </div>
 
-                <div class="photo-frame" onclick="expandView('Arctic Ice Melt', 'Since 1979, the Arctic has lost roughly 40 percent of its summer sea ice. That drives sea level rise, disrupts ocean currents, and hits coastal communities first.')">
-                    <img src="images/gallery2.jpg" alt="Melting glacier with fractured ice sheets over water">
-                    <span class="view-hint">Click to expand</span>
-                    <p class="frame-label">Arctic Ice Melt</p>
+                <div class="topic-bar">
+                    <h2>Melting Glacier</h2>
                 </div>
-
-                <div class="photo-frame" onclick="expandView('Clean Energy Shift', 'Solar and wind now generate cheaper electricity than most fossil fuels in most countries. Global investment in clean energy overtook fossil fuel investment for the first time in 2023.')">
-                    <img src="images/gallery3.jpg" alt="Field of solar panels and wind turbines under a clear sky">
-                    <span class="view-hint">Click to expand</span>
-                    <p class="frame-label">Clean Energy Shift</p>
-                </div>
-
-                <div class="photo-frame" onclick="expandView('Climate Wildfires', 'Longer, hotter dry seasons have doubled the frequency of extreme wildfires globally over the last 20 years, releasing stored carbon back into the atmosphere and destroying habitats.')">
-                    <img src="images/gallery4.jpg" alt="Forest wildfire at night with orange flames">
-                    <span class="view-hint">Click to expand</span>
-                    <p class="frame-label">Climate Wildfires</p>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-    <div id="gallery-modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
-        <div class="modal-inner" id="modal-inner">
-            <h2 id="m-title"></h2>
-            <p id="m-desc"></p>
-
-            <div class="modal-controls">
-                <small>Change theme</small>
-                <button class="pill-btn" onclick="setTheme('#074534','#ffffff')">Deep Forest</button>
-                <button class="pill-btn" onclick="setTheme('#eaf6f1','#1f2937')">Soft Leaf</button>
-                <button class="pill-btn" onclick="setTheme('#1f2937','#ffffff')">Night Mode</button>
             </div>
 
-            <div class="modal-controls">
-                <small>Change font</small>
-                <button class="pill-btn" onclick="setFont('Playfair Display, serif')">Serif</button>
-                <button class="pill-btn" onclick="setFont('Poppins, sans-serif')">Modern</button>
-                <button class="pill-btn" onclick="setFont('Open Sans, sans-serif')">Classic</button>
+
+            <div class="gallery-card" data-title="Solar-Energy" data-info="Transitioning to renewable energy like solar panels is
+             key to reducing carbon footprints.">
+                <div class="image-box">
+                    <img src="images/solar.jpg" alt="Solar pannels">
+                </div>
+
+                <div class="topic-bar">
+                    <h2>Renewable Energy</h2>
+                </div>
             </div>
 
-            <button class="close-btn" onclick="closeView()">Return to Gallery</button>
+            <div class="gallery-card" data-title="Reforestation" data-info="Protecting and planting forests helps absorb CO2 and 
+            supports biodiversity.">
+                <div class="image-box">
+                    <img src="images/forest.jpg" alt="A lush green forest">
+                </div>
+
+                <div class="topic-bar">
+                    <h2>Reforestation</h2>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-title="Coral Bleaching" data-info="Rising ocean temperatures lead to mass coral bleaching,
+             destroying marine ecosystems.">
+                <div class="image-box">
+                    <img src="images/ocean.jpg" alt="Bleached white coral underwater">
+                </div>
+
+                <div class="topic-bar">
+                    <h2>Ocean Health</h2>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-title="Sustainable Transport"
+                data-info="Electric vehicles and improved public transit reduce the carbon emissions caused by daily commuting.">
+                <div class="image-box">
+                    <img src="images/transport.jpg" alt="An electric bus charging at a station">
+                </div>
+
+                <div class="topic-bar">
+                    <h2>Sustainable Transport</h2>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-title="Climate & Drought"
+                data-info="Increased temperatures lead to severe droughts and water scarcity, threatening global food security.">
+                <div class="image-box">
+                    <img src="images/drought.jpg" alt="Cracked dry earth in a desert landscape">
+                </div>
+
+                <div class="topic-bar">
+                    <h2>Water Scarcity</h2>
+                </div>
+            </div>
+
+            <div class="gallery-card" data-title="Sustainable Agriculture"
+                data-info="Regenerative farming practices and vertical gardens reduce land use and cut methane emissions from traditional farming.">
+                <div class="image-box">
+                    <img src="images/agriculture.jpg" alt="A modern vertical indoor farm with green plants">
+                </div>
+
+                <div class="topic-bar">
+                    <h2>Sustainable Farming</h2>
+                </div>
+            </div>
+
+
+            <div class="gallery-card" data-title="Circular Economy"
+                data-info="Reducing waste and recycling materials prevents the carbon-intensive production of new goods, preserving natural resources.">
+
+                <div class="image-box">
+                    <img src="images/recycle1.jpg" alt="Various recyclable materials like glass and paper">
+                </div>
+
+                <div class="topic-bar">
+                    <h2>Circular Economy</h2>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    
+		<a href="#top" class="top-btn" aria-label="Back to top">&uarr;</a>
+	</main>
+
+    <div id="extended-view">
+        <div id="modal-container">
+            <span id="closeModal">&times;</span>
+            <img id="modal-img" src="" alt="Extended view">
+            <h2 id="modal-title"></h2>
+            <p id="modal-desc"></p>
+
+
+            <div class="custom-controls">
+                <p>Customize View:</p>
+                <button id="btnFont">Change Font</button>
+                <button id="btnColor">Change Color</button>
+            </div>
         </div>
     </div>
 
     <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
-                <p>Empowering individuals to take climate action for a sustainable future.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Coursework</h3>
-                <ul>
-                    <li><a href="pageEditor_ST1.html">Page Editor</a></li>
-                    <li><a href="validation_ST1.html">Validation Page</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Student Info</h3>
-                <p>Name: Yohan Nimneth Hewa Singappulige</p>
-                <p>Student ID: 20250247</p>
-                <p>Role: Student 1</p>
-            </div>
-            <div class="footer-section">
-                <h3>Compliance</h3>
-                <ul>
-                    <li><a href="#">Accessibility Statement</a></li>
-                </ul>
-            </div>
+    <div class="footer-container">
+        <div class="footer-section">
+            <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
+            <p>Taking climate action through everyday choices.</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+        <div class="footer-section">
+            <h3>Coursework</h3>
+            <ul>
+                <li><a href="pageEditor_ST1.html">Page Editor</a></li>
+                <li><a href="validation_ST1.html">Validation Page</a></li>
+            </ul>
         </div>
-    </footer>
+        <div class="footer-section">
+            <h3>Student Info</h3>
+            <p>Name: Yohan Singappulige</p>
+            <p>Student ID: 20250247</p>
+            <p>Role: Student 1</p>
+        </div>
+        <div class="footer-section">
+            <h3>Compliance</h3>
+            <ul>
+                <li><a href="pageEditor_ST1.html#compliance">Accessibility Statement</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+    </div>
+</footer>
 
     <script>
-        const modal    = document.getElementById('gallery-modal');
-        const modalBox = document.getElementById('modal-inner');
-        const titleEl  = document.getElementById('m-title');
-        const descEl   = document.getElementById('m-desc');
+        const cards = document.querySelectorAll('.gallery-card');
+        const modal = document.getElementById('extended-view');
+        const modalImg = document.getElementById('modal-img');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalContainer = document.getElementById('modal-container');
 
-        function expandView(title, desc) {
-            titleEl.textContent = title;
-            descEl.textContent  = desc;
-            modal.classList.add('open');
-        }
 
-        function closeView() {
-            modal.classList.remove('open');
-            modalBox.style.backgroundColor = '';
-            modalBox.style.color = '';
-            modalBox.style.fontFamily = '';
-        }
-
-        function setTheme(bg, text) {
-            modalBox.style.backgroundColor = bg;
-            modalBox.style.color = text;
-        }
-
-        function setFont(font) {
-            modalBox.style.fontFamily = font;
-        }
-
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) closeView();
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                modalImg.src = card.querySelector('img').src;
+                modalTitle.innerText = card.getAttribute('data-title');
+                modalDesc.innerText = card.getAttribute('data-info');
+                modal.style.display = 'flex';
+            });
         });
 
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.classList.contains('open')) closeView();
-        });
+
+        document.getElementById('closeModal').onclick = () => modal.style.display = 'none';
+
+
+        document.getElementById('btnFont').onclick = () => {
+            modalContainer.classList.toggle('alt-font');
+        };
+
+        document.getElementById('btnColor').onclick = () => {
+            modalContainer.classList.toggle('alt-color');
+        };
     </script>
 
+
 </body>
+
 </html>

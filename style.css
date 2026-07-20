@@ -1,9 +1,7 @@
-/* ==========================================================================
-   SPARK - Shared Global Stylesheet
-   Palette: SDG 13 Climate Action theme
-   Fonts: Poppins (headings) + Open Sans (body)
-   ========================================================================== */
+/* SPARK - Shared Global Stylesheet */
+/* SDG 13 Climate Action | Fonts: Poppins + Open Sans */
 
+/* Palette */
 :root {
     --deep-forest: #074534;
     --emerald: #2ecc71;
@@ -22,12 +20,10 @@
     --shadow: 0 10px 30px rgba(7, 69, 52, 0.1);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* Body */
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: var(--leaf-soft);
@@ -38,57 +34,56 @@ body {
     flex-direction: column;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
-    margin-top: 0;
-}
+/* Typography */
+h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; margin-top: 0; }
 
+/* Main */
 main {
     flex: 1;
+    padding-top: 100px;
 }
 
-a {
-    color: var(--emerald);
-    text-decoration: none;
-    transition: color 0.3s;
-}
+/* Links */
+a { color: var(--emerald); text-decoration: none; transition: color 0.3s; }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
+/* Images */
+img { max-width: 100%; height: auto; }
 
-/* ==========================================================================
-   HEADER + NAV
-   ========================================================================== */
-
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 50px;
+    padding: 15px 40px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
+    background: rgba(234, 246, 241, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(7, 69, 52, 0.08);
+    box-shadow: 0 2px 20px rgba(7, 69, 52, 0.06);
 }
 
-.logo {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 800;
-    letter-spacing: 0;
-    color: var(--deep-forest);
-}
-
+/* Logo group - logo img + SPARK text together in a solid pill */
 .logo-group {
     display: flex;
     align-items: center;
     gap: 12px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 6px 22px 6px 6px;
+    background: var(--white);
+    padding: 8px 24px 8px 8px;
     border-radius: 50px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(7, 69, 52, 0.15);
+    border: 2px solid rgba(7, 69, 52, 0.08);
+}
+
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    color: var(--deep-forest);
 }
 
 .logo-group .logo {
@@ -97,27 +92,28 @@ header {
     letter-spacing: 0;
 }
 
+.logo .k { color: var(--emerald); }
+
+/* Footer logo */
 footer .logo, .logo-footer {
     color: var(--white);
     font-size: 32px;
     letter-spacing: -1.5px;
+    font-weight: 800;
     margin-bottom: 15px;
 }
 
-.logo .brand { font-family: 'Poppins', sans-serif; }
-.logo .k { color: var(--emerald); }
-
+/* Logo image */
 .logo-img {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     object-fit: cover;
     border-radius: 50%;
     transition: 0.3s;
 }
-.logo-img:hover {
-    transform: scale(1.1);
-}
+.logo-img:hover { transform: scale(1.1); }
 
+/* Navigation pill */
 nav {
     background-color: var(--white);
     border-radius: 50px;
@@ -129,7 +125,6 @@ nav {
     display: flex;
     align-items: center;
 }
-
 nav ul {
     list-style: none;
     display: flex;
@@ -138,13 +133,11 @@ nav ul {
     margin: 0;
     padding: 0;
 }
-
 nav ul li {
     position: relative;
     display: inline-block;
     z-index: 10;
 }
-
 nav a {
     text-decoration: none;
     color: black;
@@ -156,14 +149,12 @@ nav a {
     position: relative;
     z-index: 10;
 }
-
-nav ul li a {
-    font-family: 'Open Sans', sans-serif;
-}
+nav ul li a { font-family: 'Open Sans', sans-serif; }
 nav ul li a:hover { color: var(--accent-highlight); }
 nav ul li a.active-page { color: var(--accent-highlight); }
 nav ul:hover li a.active-page { color: black; }
 
+/* Nav slider indicator */
 nav span {
     position: absolute;
     top: 0;
@@ -177,6 +168,7 @@ nav span {
     pointer-events: none;
 }
 
+/* Slider hover positions */
 nav ul li:nth-child(1):hover ~ span { left: 0px; width: 76px; }
 nav ul li:nth-child(2):hover ~ span { left: 76px; width: 99px; }
 nav ul li:nth-child(3):hover ~ span { left: 180px; width: 80px; }
@@ -185,6 +177,7 @@ nav ul li:nth-child(5):hover ~ span { left: 345px; width: 100px; }
 nav ul li:nth-child(6):hover ~ span { left: 449px; width: 70px; }
 nav ul li:nth-child(7):hover ~ span { left: 520px; width: 89px; }
 
+/* Slider default positions per page */
 body.page-home nav span { left: 0px; width: 76px; }
 body.page-simulator nav span { left: 76px; width: 99px; }
 body.page-gallery nav span { left: 180px; width: 80px; }
@@ -193,17 +186,14 @@ body.page-feedback nav span { left: 345px; width: 100px; }
 body.page-team nav span { left: 449px; width: 70px; }
 body.page-sitemap nav span { left: 520px; width: 89px; }
 
-/* ==========================================================================
-   HOME PAGE - MAIN TOPIC + MISSION + PORTAL BUTTONS
-   ========================================================================== */
-
+/* Home page hero */
 .main-topic {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     text-align: center;
-    padding: 100px 8% 60px;
+    padding: 130px 8% 60px;
 }
 .main-topic h1 {
     font-size: 5rem;
@@ -219,6 +209,7 @@ body.page-sitemap nav span { left: 520px; width: 89px; }
     line-height: 1.6;
 }
 
+/* Home mission cards */
 .mission-section { padding: 100px 50px; }
 .mission-grid {
     display: grid;
@@ -248,22 +239,10 @@ body.page-sitemap nav span { left: 520px; width: 89px; }
     margin-bottom: 25px;
     display: block;
 }
-.mission-card h3 {
-    color: var(--white);
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-}
-.mission-card p {
-    color: var(--text-light);
-    line-height: 1.6;
-    font-size: 0.95rem;
-}
-.card-icon {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 20px;
-    object-fit: contain;
-}
+.mission-card h2 { color: var(--white); font-size: 1.8rem; margin-bottom: 20px; }
+.mission-card h3 { color: var(--white); font-size: 1.8rem; margin-bottom: 20px; }
+.mission-card p { color: var(--text-light); line-height: 1.6; font-size: 0.95rem; }
+.card-icon { width: 60px; height: 60px; margin-bottom: 20px; object-fit: contain; }
 .card-highlights { margin-top: auto; padding-top: 20px; }
 .card-highlights h4 {
     font-size: 0.9rem;
@@ -279,10 +258,8 @@ body.page-sitemap nav span { left: 520px; width: 89px; }
     padding-left: 15px;
 }
 
-.interactive-gallery {
-    padding: 80px 50px;
-    text-align: center;
-}
+/* Home interactive gallery */
+.interactive-gallery { padding: 80px 50px; text-align: center; }
 .interactive-gallery h2 {
     font-size: 2rem;
     color: var(--white);
@@ -314,10 +291,7 @@ body.page-sitemap nav span { left: 520px; width: 89px; }
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
-
+/* Footer */
 footer {
     background-color: var(--dark-forest);
     color: #e0e0e0;
@@ -325,40 +299,29 @@ footer {
     border-top: 1px solid var(--forest-border);
     margin-top: auto;
 }
-
-.footer-container,
-.footer-inner {
+.footer-container, .footer-inner {
     max-width: 1500px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px;
 }
-
-.footer-section h4,
-.footer-section h3 {
+.footer-section h3, .footer-section h4 {
     color: var(--emerald);
     margin-bottom: 20px;
     font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
-.footer-section p,
-.footer-section a {
+.footer-section p, .footer-section a {
     font-size: 0.9rem;
     line-height: 1.6;
     color: var(--text-light);
 }
-
 .footer-section ul { list-style: none; padding: 0; }
 .footer-section ul li { margin-bottom: 10px; }
-.footer-section ul li a {
-    text-decoration: none;
-    transition: 0.3s;
-}
+.footer-section ul li a { text-decoration: none; transition: 0.3s; }
 .footer-section ul li a:hover { color: var(--emerald); }
-
 .footer-bottom {
     margin-top: 50px;
     padding-top: 20px;
@@ -368,10 +331,7 @@ footer {
     color: #666;
 }
 
-/* ==========================================================================
-   BACKWARD COMPAT UTILITIES
-   ========================================================================== */
-
+/* Utility classes */
 .lush-card {
     background: var(--white);
     border-radius: 20px;
@@ -384,7 +344,6 @@ footer {
     transform: translateY(-12px);
     box-shadow: 0 20px 40px rgba(7, 69, 52, 0.15);
 }
-
 .btn {
     display: inline-block;
     padding: 14px 32px;
@@ -405,10 +364,7 @@ footer {
     transform: translateY(-2px);
 }
 
-/* ==========================================================================
-   RESPONSIVE
-   ========================================================================== */
-
+/* Responsive */
 @media (max-width: 1100px) {
     header { padding: 15px 25px; }
     nav { position: static; transform: none; }
@@ -416,7 +372,6 @@ footer {
     .mission-grid { grid-template-columns: repeat(2, 1fr); }
     .footer-container, .footer-inner { grid-template-columns: repeat(2, 1fr); }
 }
-
 @media (max-width: 700px) {
     header { flex-direction: column; gap: 15px; }
     .mission-grid { grid-template-columns: 1fr; }

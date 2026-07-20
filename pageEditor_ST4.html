@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor | Sithil Senila Hettiarachchi | Student 4 | SPARK</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/pageEditor_validator.css">
+</head>
+
+<body id="top" class="page-content">
+
+    <header>
+        <div class="logo-group">
+            <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+            <div class="logo">SPAR<span class="k">K</span></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="ais.html">Simulator</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+                <span></span>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="stud">
+        <h1>Sithil Senila Hettiarachchi &nbsp;|&nbsp; Team SPARK &nbsp;|&nbsp; Student 4</h1>
+    </section>
+
+    <div class="container">
+        <main>
+
+            <!-- ==================== PAGE 1: USER PROFILE ==================== -->
+
+            <section>
+                <h2 id="profile">User Profile Page</h2>
+                <h3>Technical Description</h3>
+                <p>The User Profile page (<code>profile.html</code>) was built using the shared template structure with the global header, navigation bar, and footer. The page uses the <code>&lt;main&gt;</code> semantic tag to wrap the core interactive area, which contains a progress bar and a profile output section.</p>
+                <p>The HTML structure consists of a <code>&lt;div class="profile-container"&gt;</code> that holds three hidden <code>&lt;div class="profile-section"&gt;</code> elements (one for each step: Personal Details, Interests, and Commitments). Each section has a unique <code>id</code> attribute (e.g., <code>id="section-personal"</code>) so JavaScript can target and reveal them individually using <code>document.getElementById()</code>.</p>
+                <p>The progress bar is implemented with two nested <code>&lt;div&gt;</code> tags: an outer container with a grey background and an inner bar whose <code>width</code> is dynamically set by JavaScript. A CSS <code>transition: width 0.5s ease-in-out</code> property creates a smooth animated fill effect whenever the progress updates.</p>
+                <p>Interactivity is entirely driven by JavaScript using <code>prompt()</code> dialogs. The script defines an array of step objects, each containing an array of prompt questions. When the user clicks "Start / Continue Profile," the <code>startProfileBuilder()</code> function iterates through the current step's prompts. User responses are stored in a <code>userData</code> object. After each step completes, the <code>updateProfileOutput()</code> function re-renders the visible sections by setting <code>innerHTML</code> with template literals and toggling <code>style.display</code> between <code>'block'</code> and <code>'none'</code>.</p>
+                <p>Users can cancel a prompt (returning <code>null</code>) to pause the step, leave a prompt blank to skip it, or use the "Revisit Step" buttons to return to any previously completed step. A <code>resetProfile()</code> function clears the <code>userData</code> object and resets the step index to zero.</p>
+                <p>CSS styling uses embedded <code>&lt;style&gt;</code> in the <code>&lt;head&gt;</code> section. The navigation bar's active state is handled by overriding the global CSS <code>nav span</code> position to move the sliding indicator to the fourth link, and using attribute selectors such as <code>nav ul li a[href="profile.html"]</code> to set the "Profile" link colour to <code>greenyellow</code>, without modifying the shared <code>style.css</code> file.</p>
+
+                <h3>Accessibility</h3>
+                <p>The page uses semantic HTML tags (<code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>) ensuring screen readers can parse the document hierarchy. All buttons have descriptive text labels ("Start / Continue Profile," "Reset Profile," "Revisit Step 1/2/3") so users relying on assistive technology understand the purpose of each control. The progress bar includes a text-based percentage readout (<code>id="progress-text"</code>) so the completion status is conveyed to non-visual users, not just through the visual bar width.</p>
+
+                <h3>Link to the validation page</h3>
+                <p><a href="validation_ST4.html#profileVal">Open the User Profile validation section</a>, which contains the W3C snapshot and reflection for this page.</p>
+
+                <h3>Link to the page</h3>
+                <p><a href="profile.html">Open the User Profile page.</a></p>
+            </section>
+
+            <!-- ==================== PAGE 2: SITEMAP ==================== -->
+
+            <section>
+                <h2 id="sitemap">Sitemap Page</h2>
+                <h3>Technical Description</h3>
+                <p>The Sitemap page (<code>sitemap.html</code>) presents a visual, interactive map of the entire website hierarchy using Scalable Vector Graphics (SVG). The core of the page is a single <code>&lt;svg&gt;</code> element with a <code>viewBox="0 0 1000 600"</code> and <code>preserveAspectRatio="xMidYMid meet"</code>, making the diagram fully responsive across different screen sizes without distortion.</p>
+                <p>The site structure is represented using SVG shape primitives: a <code>&lt;circle&gt;</code> for the Home page (the central hub) and <code>&lt;rect&gt;</code> elements with rounded corners (<code>rx</code> attribute) for all other pages. These shapes are grouped inside <code>&lt;g class="node"&gt;</code> elements, each containing an <code>&lt;a&gt;</code> tag wrapping the shape and a <code>&lt;text&gt;</code> label. The <code>&lt;text&gt;</code> elements use <code>text-anchor="middle"</code> for centred alignment within their respective shapes.</p>
+                <p>Connecting lines between nodes are drawn using SVG <code>&lt;path&gt;</code> elements with the <code>d</code> attribute defining line coordinates (e.g., <code>d="M 500 60 L 500 120"</code>). These paths use the class <code>"link"</code> and are styled with a neutral grey stroke.</p>
+                <p>CSS hover and focus effects are applied via embedded styles targeting <code>.node:hover rect</code> and <code>.node a:focus rect</code>, changing the <code>fill</code> colour and <code>stroke</code> width to provide clear visual feedback. The <code>pointer-events: none</code> property on <code>&lt;text&gt;</code> elements ensures mouse clicks pass through the label to the underlying clickable shape.</p>
+
+                <h3>Accessibility</h3>
+                <p>Each clickable SVG node contains a <code>&lt;title&gt;</code> element (e.g., <code>&lt;title&gt;User Profile Page&lt;/title&gt;</code>) providing descriptive tooltips for screen readers. All interactive <code>&lt;a&gt;</code> elements within the SVG have <code>tabindex="0"</code> to ensure full keyboard navigation. The <code>:focus</code> pseudo-class provides visible focus indicators (colour and stroke changes) matching the hover state, so keyboard-only users receive equivalent visual feedback. The overall <code>&lt;svg&gt;</code> tag includes an <code>aria-label</code> attribute describing the diagram's purpose.</p>
+
+                <h3>Link to the validation page</h3>
+                <p><a href="validation_ST4.html#sitemapVal">Open the Sitemap validation section</a>, which contains the W3C snapshot and reflection for this page.</p>
+
+                <h3>Link to the page</h3>
+                <p><a href="sitemap.html">Open the Sitemap page.</a></p>
+            </section>
+
+            <!-- ==================== PAGE 3: CONTENT ==================== -->
+
+            <section>
+                <h2 id="content">Content Page</h2>
+                <h3>Technical Description</h3>
+                <p>The Content page (<code>content_ST4.html</code>) is an informational article titled "Household Energy Consumption and Its Direct Climate Impact." The page layout uses CSS Flexbox (<code>display: flex; flex-direction: row; gap: 30px</code>) to position a sticky sidebar navigation alongside the main article body.</p>
+                <p>The sidebar is implemented as a <code>&lt;div class="side-nav" role="navigation"&gt;</code> rather than a <code>&lt;nav&gt;</code> element. This deliberate choice was made because the <code>style.css</code> file applies <code>position: absolute; left: 50%; transform: translateX(-50%)</code> to all <code>&lt;nav&gt;</code> elements (intended for the header navbar). Using a <code>&lt;div&gt;</code> with <code>role="navigation"</code> preserves accessibility semantics while avoiding the inherited absolute positioning that would break the sidebar layout.</p>
+                <p>The sidebar uses <code>position: sticky; top: 110px</code> so it remains visible as the user scrolls through the article. It contains anchor links (<code>&lt;a href="#fossil-fuels"&gt;</code>, etc.) that scroll smoothly to corresponding <code>&lt;section&gt;</code> elements via the CSS property <code>html { scroll-behavior: smooth }</code>.</p>
+                <p>The article body is divided into four <code>&lt;section&gt;</code> elements, each with a unique <code>id</code>, containing structured headings (<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>) and four locally stored images within the <code>./images/</code> directory. Each <code>&lt;img&gt;</code> tag has a descriptive <code>alt</code> attribute and uses the <code>.content-image</code> class for consistent styling (border-radius, box-shadow, and responsive width).</p>
+                <p>The global <code>main</code> styles are overridden using a specific class selector <code>main.content-page</code> to set <code>display: block</code> and adjust padding, ensuring the Flexbox layout of the <code>.content-wrapper</code> div works correctly without conflicting with the global <code>main { flex: 1; display: flex }</code> rule.</p>
+                <p>A fixed "Go to Top" button is implemented as a pure HTML/CSS anchor link (<code>&lt;a href="#top" class="back-to-top"&gt;</code>) positioned with <code>position: fixed; bottom: 30px; right: 30px</code>. No JavaScript is required for this functionality.</p>
+
+                <h3>Accessibility</h3>
+                <p>All four images include descriptive <code>alt</code> text that conveys the content of each image (e.g., "Photovoltaic solar panels mounted securely across the shingled roof of a suburban family house"). The sidebar uses <code>role="navigation"</code> and <code>aria-label="Page Sections"</code> to identify its purpose for screen readers. The heading hierarchy (<code>h1 &gt; h2 &gt; h3</code>) is maintained correctly throughout the page. The "Go to Top" button includes an <code>aria-label="Scroll back to top of the page"</code> attribute.</p>
+
+                <h3>Link to the validation page</h3>
+                <p><a href="validation_ST4.html#contentVal">Open the Content Page validation section</a>, which contains the W3C snapshot and reflection for this page.</p>
+
+                <h3>Link to the page</h3>
+                <p><a href="content_ST4.html">Open the Content page.</a></p>
+            </section>
+
+            <!-- ==================== CHALLENGES ==================== -->
+
+            <section>
+                <h2 id="challenge">Challenges and Lessons Learned</h2>
+                <p><strong>Challenge 1 - Global CSS conflicts with the sidebar navigation:</strong> The most significant challenge was on the Content page. The <code>style.css</code> applies <code>position: absolute</code> and <code>transform: translateX(-50%)</code> to all <code>&lt;nav&gt;</code> elements. When I initially used a <code>&lt;nav&gt;</code> tag for my sidebar, it flew off the page and centred itself over the header. I resolved this by changing the sidebar to a <code>&lt;div&gt;</code> with <code>role="navigation"</code> and explicitly overriding the global <code>nav ul</code> styles (like <code>display: flex</code>) within the embedded CSS. This taught me the importance of understanding CSS specificity and how shared stylesheets can have unintended side effects on page-specific elements.</p>
+                <p><strong>Challenge 2 - Progressive DOM updates in the User Profile:</strong> Managing the step-by-step data collection via <code>prompt()</code> while keeping the UI in sync was tricky. Initially, the DOM would duplicate data if a user revisited a step. I solved this by using a central <code>userData</code> object as the single source of truth and having the <code>updateProfileOutput()</code> function completely re-render all visible sections based on the current state of that object, rather than appending new elements.</p>
+                <p><strong>Challenge 3 - SVG coordinate alignment:</strong> Manually positioning SVG <code>&lt;rect&gt;</code>, <code>&lt;circle&gt;</code>, <code>&lt;text&gt;</code>, and <code>&lt;path&gt;</code> elements required careful calculation of x/y coordinates. I learned how the SVG <code>viewBox</code> coordinate system works independently of the page's CSS dimensions, and how <code>preserveAspectRatio</code> handles scaling.</p>
+                <p><strong>Challenge 4 - Active navigation state without editing global CSS:</strong> The shared <code>style.css</code> hardcodes the first nav link as the active/highlighted item. To show "Profile" as active on my page, I used embedded CSS with higher specificity to override the default <code>nav span</code> position and link colours. This approach respects the group workflow by not modifying the shared file.</p>
+            </section>
+
+            <!-- ==================== COMPLIANCE ==================== -->
+
+            <section>
+                <h2 id="compliance">Compliance</h2>
+                <p>All content on my three pages is original, written by me from my own research. Where I referenced external facts and statistics, I cited the original source in-text and included a full entry in the References section. No copyrighted articles, images, or code have been reproduced verbatim.</p>
+                <p>The images used on my pages come from either the SPARK team's own image folder or from stock sources that permit non-commercial educational use. Any external image sources are attributed in the References section. No branded logos, trademarks, or celebrity likenesses appear anywhere on my pages, which keeps the project on the safe side of Janet acceptable use guidelines.</p>
+                <p>The site collects no personal data, uses no third-party trackers, and stores nothing in cookies or local storage. All interactivity happens client-side within the browser session and disappears when the user closes the tab. This means the project sits comfortably within data protection expectations for a student educational project.</p>
+                <p>Accessibility has been treated as a compliance requirement rather than a nice-to-have. Semantic HTML tags, descriptive alt text on every image, a strict heading hierarchy, ARIA labels on non-obvious landmarks, and adequate contrast ratios all sit within the Janet expectations for public-facing educational content and are consistent with the WCAG guidance covered in the module lectures.</p>
+                <p>Nothing on the pages is offensive, defamatory, or promotes illegal activity. The tone is educational and constructive, aligned with the SDG 13 climate action theme.</p>
+            </section>
+
+            <!-- ==================== GROUP MEETINGS ==================== -->
+
+            <section>
+                <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+                <p>Seven team meetings were held across the project timeline. My individual write-ups follow the table.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date &amp; Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended</th>
+                            <th>My Individual Contribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>25 Jun 2026, 10:00</td>
+                            <td>Face-to-face</td>
+                            <td>Agree SDG, assign sub-topics, decide site structure</td>
+                            <td>Yes</td>
+                            <td>I agreed to take responsibility for the User Profile and Sitemap pages. Proposed SDG 13 (Climate Action) as the topic and volunteered to handle the energy consumption angle for my content page.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>30 Jun 2026, 14:00</td>
+                            <td>Online</td>
+                            <td>Design language, palette, font pair, first sketch reviews</td>
+                            <td>Yes</td>
+                            <td>Reviewed Student 1's template and style.css. Identified that all nav elements share the same absolute positioning, which I noted would need careful handling for my sidebar. Suggested the green accent colour for interactive elements.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>4 Jul 2026, 11:00</td>
+                            <td>Online</td>
+                            <td>Progress check on splash, home draft, shared CSS setup</td>
+                            <td>Yes</td>
+                            <td>Presented the step-by-step prompt() logic and DOM manipulation approach for the User Profile page. Got feedback on adding revisit buttons for skipped steps.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>8 Jul 2026, 15:00</td>
+                            <td>Hybrid</td>
+                            <td>Content page structures, integration planning</td>
+                            <td>Yes</td>
+                            <td>Demonstrated the SVG sitemap layout showing all website pages in a hierarchy. Explained how I made each node clickable and keyboard accessible with tabindex.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>12 Jul 2026, 16:00</td>
+                            <td>Online</td>
+                            <td>Template pivot decision, style refactor plan</td>
+                            <td>Yes</td>
+                            <td>Shared my content page on energy consumption impacts. Tested internal anchor links and the sticky sidebar. Verified all navigation links point to the correct filenames across the team's pages.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>16 Jul 2026, 13:00</td>
+                            <td>Face-to-face</td>
+                            <td>W3C validation pass, cross-page linking, GitHub Pages check</td>
+                            <td>Yes</td>
+                            <td>Validated all my pages through the W3C Markup Validation Service and captured screenshots. Ensured the folder structure matches the submission requirements. Finalised the Page Editor and Validation reports.</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>19 Jul 2026, 10:00</td>
+                            <td>Face-to-face</td>
+                            <td>Viva rehearsal, contract sign-off, submission checklist</td>
+                            <td>Yes</td>
+                            <td>Rehearsed my viva presentation covering the Profile page JavaScript logic and SVG sitemap implementation. Signed the group contract and completed the final submission checklist.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Throughout the project I delivered three fully functional pages: a JavaScript-driven User Profile builder with prompt-based data collection and progress tracking, an SVG-based interactive Sitemap with keyboard accessibility, and a Content page with a sticky sidebar and locally stored images. My biggest cross-cutting contribution was identifying and resolving global CSS conflicts that affected sidebar navigation, which I documented as a reusable approach for the team.</p>
+            </section>
+
+            <!-- ==================== REFERENCES ==================== -->
+
+            <section>
+                <h2 id="ref">References</h2>
+                <ul class="ref">
+                    <li>W3C (2026) <i>Markup Validation Service.</i> Available at: <a href="https://validator.w3.org/" target="_blank">https://validator.w3.org/</a> (Accessed: 18 Jul 2026).</li>
+                    <li>Mozilla Developer Network (2026) <i>SVG Tutorial.</i> Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank">https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial</a> (Accessed: 18 Jul 2026).</li>
+                    <li>Mozilla Developer Network (2026) <i>Document.getElementById().</i> Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById</a> (Accessed: 18 Jul 2026).</li>
+                    <li>Mozilla Developer Network (2026) <i>Window.prompt().</i> Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/Window/prompt</a> (Accessed: 18 Jul 2026).</li>
+                    <li>Mozilla Developer Network (2026) <i>CSS position: sticky.</i> Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank">https://developer.mozilla.org/en-US/docs/Web/CSS/position</a> (Accessed: 18 Jul 2026).</li>
+                    <li>Google Images (2026) <i>Licensed images for educational use.</i> Available at: <a href="https://images.google.com/" target="_blank">https://images.google.com/</a> (Accessed: 18 Jul 2026).</li>
+                    <li>Duckett, J. (2011) <i>HTML and CSS: Design and Build Websites,</i> John Wiley &amp; Sons Inc., Indianapolis.</li>
+                    <li>University of Westminster (2026) <i>4COSC011W Web Design and Development - Coursework Briefing Notes.</i></li>
+                </ul>
+            </section>
+
+            <p class="top"><a href="#top">Go top</a></p>
+        </main>
+
+        <aside>
+            <h3>Core pages developed:</h3>
+            <ul class="top-level-ul">
+                <li>Student 4 (Sithil Senila)</li>
+                <ul>
+                    <li><a href="#profile">User Profile</a></li>
+                    <li><a href="#sitemap">Sitemap</a></li>
+                    <li><a href="#content">Content</a></li>
+                </ul>
+                <li><a href="#challenge">Challenges &amp; Lessons Learned</a></li>
+                <li><a href="#compliance">Compliance</a></li>
+                <li><a href="#group">Meetings &amp; Contribution Log</a></li>
+                <li><a href="#ref">References</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="logo logo-footer">SPARK</div>
+                <p>Empowering individuals to take climate action for a sustainable future.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Coursework</h3>
+                <ul>
+                    <li><a href="pageEditor_ST4.html">Page Editor</a></li>
+                    <li><a href="validation_ST4.html">Validation Page</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Student Info</h3>
+                <p>Name: Sithil Senila Hettiarachchi</p>
+                <p>Student ID: w2212867</p>
+                <p>Role: Student 4</p>
+            </div>
+            <div class="footer-section">
+                <h3>Compliance</h3>
+                <ul>
+                    <li><a href="pageEditor_ST4.html#compliance">Accessibility Statement</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

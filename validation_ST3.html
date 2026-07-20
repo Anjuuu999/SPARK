@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Validation Report | Krishen Silva | Student 3 | SPARK</title>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/pageEditor_validator.css">
+    </head>
+    
+    <body id="top" class="page-content">
+        
+        <header>
+            <div class="logo-group">
+                <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+                <div class="logo">SPAR<span class="k">K</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="ais.html">Simulator</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                    <span></span>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="stud">
+            <h1>Krishen Silva &nbsp;|&nbsp; Team SPARK &nbsp;|&nbsp; Student 3</h1>
+        </section>
+        
+        <div class="container">
+            <main>
+                
+                <section>
+                    <h2 id="feedbackVal">Feedback page validation report</h2>
+                    <p>I initially tried to run the document, feedback.html, through the W3C Nu HTML Checker and got one error: a shared footer (the bottom of the document) contained an &lt;h4&gt; after an &lt;h2&gt;, which is not a logical hierarchy in order to be accessible. The footer was part of all four team pages, not just my page, and thus there was this same error on everyone's page. I did not wait on a group-wide template fix but changed the footer's &lt;h4&gt; tags to &lt;h3&gt; in my own file in order to get a clean pass by fixing the order of the headings. The page passed with no errors or warnings post this fix. I didn't have to leave any unanswered warnings, the validator gave me a clean bill of health after I corrected the heading problem.</p>
+                    <img src="validationSnapshots/validation_feedback.png" alt="W3C Nu HTML Checker result for the Feedback page showing zero errors and warnings">
+                    
+                    <h3>Back to Page Editor page</h3>
+                    <p><a href="pageEditor_ST3.html#feedback">Back to the Feedback page section of the Page Editor.</a></p>
+                </section>
+                
+                <section>
+                    <h2 id="teamVal">Team page validation report</h2>
+                    <p>The W3C Nu HTML Checker found one error: A missing heading of &lt;h2&gt;; (should be used for a team member's name, for example "Yohan") comes after the page's &lt;h1&gt;, "Meet the Team" heading, and is not present in between. This occurred because there is only one level of heading below the main heading on this page; there is no "natural" level 2 heading to place without reworking the card structure. I chose not to force this warning to be an unnecessary &lt;h2&gt; since the names of team members are intended to be sub-items underneath a single page heading, not underneath an extra intermediate heading. The rest of the page passed without the appearance of any other errors, and I didn't believe that a heading was necessary, so I considered this one heading-level skip to be a good compromise.</p>
+                    <img src="validationSnapshots/validation_team.png" alt="W3C Nu HTML Checker result for the Team page showing zero errors and warnings">
+                    
+                    <h3>Back to Page Editor page</h3>
+                    <p><a href="pageEditor_ST3.html#team">Back to the Team page section of the Page Editor.</a></p>
+                </section>
+                
+                <section>
+                    <h2 id="contentVal">Content page validation report</h2>
+                    <p>The content_ST3.html was checked for validation on the first pass and highlighted two problems. One was a misspelling in the CSS, with the correct spelling reading "balck" instead of "black". The other was the same incorrect heading level that was seen on the feedback page, an &lt;h4&gt; after an &lt;h2&gt; which meant there was no heading level between the two, this is not in line with the hierarchy required for accessibility. Temporarily changed the &lt;h4&gt; tags in the footer to &lt;h3&gt;, as I did on the feedback page, to restore the correct order of headings on that page, to correct the spelling mistake that was introduced; changed the same on my own copy, in my own file. Once both fixes were made the page had no remaining errors or warnings.</p>
+                    <img src="validationSnapshots/validation_content_ST3.png" alt="W3C Nu HTML Checker result for the Content page showing zero errors and warnings">
+                    
+                    <h3>Back to Page Editor page</h3>
+                    <p><a href="pageEditor_ST3.html#content">Back to the Content page section of the Page Editor.</a></p>
+                </section>
+                
+                <section>
+                    <h2 id="reflection">Reflection on Validation</h2>
+                    <p>Running my three pages through the validator taught me that the small errors are the ones that catch you off guard. The heading hierarchy warning on the shared footer was one of those - the page rendered perfectly fine in the browser but the semantic order was wrong because we all inherited an h4 that should have been h3. Fixing it in my own files worked as a stop-gap and I flagged it to the team for a proper shared fix.</p>
+                    <p>The spelling mistake in my CSS ("balck" instead of "black") was actually the funniest one to find - the validator caught it as an unknown value which is exactly what a strict CSS check does. Made me realise CSS validation matters as much as HTML validation. From now on I run both after every big edit.</p>
+                </section>
+                
+                <p class="top"><a href="#top">Go top</a></p>
+            </main>
+            
+            <aside>
+                <h3>Core pages validated:</h3>
+                <ul class="top-level-ul">
+                    <li>Student 3 (Krishen Silva)</li>
+                    <ul>
+                        <li><a href="#feedbackVal">Feedback page</a></li>
+                        <li><a href="#teamVal">Team page</a></li>
+                        <li><a href="#contentVal">Content page</a></li>
+                    </ul>
+                    <li><a href="#reflection">Reflection on Validation</a></li>
+                    <li><a href="pageEditor_ST3.html">Back to Page Editor</a></li>
+                </ul>
+            </aside>
+        </div>
+        
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
+                    <p>Empowering individuals to take climate action for a sustainable future.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Coursework</h3>
+                    <ul>
+                        <li><a href="pageEditor_ST3.html">Page Editor</a></li>
+                        <li><a href="validation_ST3.html">Validation Page</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Student Info</h3>
+                    <p>Name: Krishen Silva</p>
+                    <p>Student ID: w2212471</p>
+                    <p>Role: Student 3</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Compliance</h3>
+                    <ul>
+                        <li><a href="pageEditor_ST3.html#compliance">Accessibility Statement</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+            </div>
+        </footer>
+        
+    </body>
+</html>

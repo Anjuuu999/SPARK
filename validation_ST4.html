@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Report | Sithil Senila Hettiarachchi | Student 4 | SPARK</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/pageEditor_validator.css">
+</head>
+
+<body id="top" class="page-content">
+
+    <header>
+        <div class="logo-group">
+            <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+            <div class="logo">SPAR<span class="k">K</span></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="ais.html">Simulator</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+                <span></span>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="stud">
+        <h1>Sithil Senila Hettiarachchi &nbsp;|&nbsp; Team SPARK &nbsp;|&nbsp; Student 4</h1>
+    </section>
+
+    <div class="container">
+        <main>
+
+            <section>
+                <h2 id="profileVal">User Profile Page validation report</h2>
+                <p>The <code>profile.html</code> page was validated using the W3C Nu HTML Checker. On the first pass, a warning appeared regarding a missing <code>&lt;h1&gt;</code> tag since the page design only required subheadings. I addressed this by ensuring the page structure remains semantic. One persistent error is "Element span not allowed as child of element ul", which originates from the shared global template navigation animation; to respect team workflow, this was left unaltered. All student-specific code passes cleanly.</p>
+                <img src="validationSnapshots/validation_profile.png" alt="W3C Nu HTML Checker result for the User Profile showing zero errors and warnings for student code">
+
+                <h3>Back to Page Editor page</h3>
+                <p><a href="pageEditor_ST4.html#profile">Back to the User Profile section of the Page Editor.</a></p>
+            </section>
+
+            <section>
+                <h2 id="sitemapVal">Sitemap Page validation report</h2>
+                <p>The <code>sitemap.html</code> page was checked using the W3C validator. The initial pass showed a heading hierarchy warning in the footer (skipping from h2 to h4), which I resolved by changing the footer headings to <code>&lt;h3&gt;</code>. The SVG markup passed validation flawlessly without errors. The only remaining flag is the same global template navigation <code>&lt;span&gt;</code> error, which was deliberately left unchanged as per the team's structural guidelines.</p>
+                <img src="validationSnapshots/validation_sitemap.png" alt="W3C Nu HTML Checker result for the Sitemap showing zero errors and warnings for student code">
+
+                <h3>Back to Page Editor page</h3>
+                <p><a href="pageEditor_ST4.html#sitemap">Back to the Sitemap section of the Page Editor.</a></p>
+            </section>
+
+            <section>
+                <h2 id="contentVal">Content Page validation report</h2>
+                <p>The <code>content_ST4.html</code> validation initially flagged several issues: trailing slashes on self-closing <code>&lt;img&gt;</code> tags and a skipped heading level in the footer. I removed the trailing slashes (as they have no effect in HTML5) and corrected the footer heading hierarchy to <code>&lt;h3&gt;</code>. After these fixes the student-developed sections of the page passed cleanly.</p>
+                <img src="validationSnapshots/validation_content_ST4.png" alt="W3C Nu HTML Checker result for the Content Page showing zero errors and warnings for student code">
+
+                <h3>Back to Page Editor page</h3>
+                <p><a href="pageEditor_ST4.html#content">Back to the Content Page section of the Page Editor.</a></p>
+            </section>
+
+            <section>
+                <h2 id="reflection">Reflection on Validation</h2>
+                <p>Running the W3C validator across my three pages showed me that even things that render correctly in the browser can still fail validation for subtle reasons. On the Profile page, the missing h1 warning taught me that a semantic document structure isn't optional even if the design doesn't visually need a top heading - I added a proper h1 to keep things semantic. The heading hierarchy warnings on the footer (which affected multiple team members because we share the same footer) reminded me that shared components need to be validated too, not just the page-specific code.</p>
+                <p>The most useful lesson was on the Content page with the self-closing img tags. I had been writing them as <code>&lt;img /&gt;</code> out of habit from JSX but HTML5 doesn't need the trailing slash and technically it can trigger warnings. After removing them all my content page validated cleanly. From now on I'll be running the validator at every checkpoint rather than only at the end.</p>
+            </section>
+
+            <p class="top"><a href="#top">Go top</a></p>
+        </main>
+
+        <aside>
+            <h3>Core pages validated:</h3>
+            <ul class="top-level-ul">
+                <li>Student 4 (Sithil Senila)</li>
+                <ul>
+                    <li><a href="#profileVal">User Profile</a></li>
+                    <li><a href="#sitemapVal">Sitemap</a></li>
+                    <li><a href="#contentVal">Content Page</a></li>
+                </ul>
+                <li><a href="#reflection">Reflection on Validation</a></li>
+                <li><a href="pageEditor_ST4.html">Back to Page Editor</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="logo logo-footer">SPARK</div>
+                <p>Empowering individuals to take climate action for a sustainable future.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Coursework</h3>
+                <ul>
+                    <li><a href="pageEditor_ST4.html">Page Editor</a></li>
+                    <li><a href="validation_ST4.html">Validation Page</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Student Info</h3>
+                <p>Name: Sithil Senila Hettiarachchi</p>
+                <p>Student ID: w2212867</p>
+                <p>Role: Student 4</p>
+            </div>
+            <div class="footer-section">
+                <h3>Compliance</h3>
+                <ul>
+                    <li><a href="pageEditor_ST4.html#compliance">Accessibility Statement</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

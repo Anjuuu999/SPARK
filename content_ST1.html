@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Spark</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		.page-nav {
+			display: flex;
+			justify-content: center;
+			gap: 8px;
+			flex-wrap: wrap;
+			padding: 12px 8%;
+			background: #ffffff;
+			border-bottom: 1px solid rgba(7, 69, 52, 0.08);
+			margin: 0 -20px 40px -20px;
+			border-radius: 0;
+		}
+		
+		.page-nav ul {
+			display: flex;
+			justify-content: center;
+			gap: 8px;
+			flex-wrap: wrap;
+			width: 100%;
+			padding: 0;
+			list-style: none;
+		}
+		.page-nav ul li {
+			margin: 0;
+		}
+		.page-nav ul li a {
+			padding: 6px 14px;
+			border-radius: 50px;
+			background: #eaf6f1;
+			color: #074534;
+			font-family: 'Poppins', sans-serif;
+			font-weight: 600;
+			font-size: 0.8rem;
+			text-decoration: none;
+			transition: 0.3s;
+			display: inline-block;
+		}
+		.page-nav ul li a:hover {
+			background: #2ecc71;
+			color: #ffffff;
+			transform: translateY(-2px);
+		}
+
+		
+
+		.page-nav ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 12px;
+		}
+
+		.page-nav a {
+			text-decoration: none;
+			color: #14401f;
+			font-weight: bold;
+			font-size: 14px;
+			display: inline-block;
+			padding: 6px 12px;
+			transition: all 0.2s ease;
+		}
+
+		.page-nav a:hover {
+			background: #10b981;
+			color: #ffffff;
+			border-radius: 50px;
+		}
+
+	
+		.top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #2ecc71;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 700;
+            box-shadow: 0 6px 18px rgba(46, 204, 113, 0.5);
+            transition: 0.3s;
+            z-index: 999;
+            text-decoration: none;
+        }
+        .top-btn:hover {
+            background: #074534;
+            transform: translateY(-4px);
+            color: #ffffff;
+        }
+
+
+		section {
+			padding: 50px 0;
+			border-bottom: 1px solid #c9dcc2;
+		}
+
+		.content-img {
+			width: 100%;
+			max-width: 700px;
+			height: auto;
+			border-radius: 15px;
+			margin: 25px 0;
+			display: block;
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+		}
+
+
+		.main-content-area {
+			display: block !important;
+			max-width: 1000px;
+			margin: 130px auto 50px auto;
+			padding: 0 20px;
+		}
+
+		.main-content-area h1 {
+			font-size: 3rem;
+			color: #074534;
+			margin-bottom: 20px;
+			text-align: center;
+			font-family: 'Poppins', sans-serif;
+			font-weight: 800;
+		}
+		.main-content-area section {
+			scroll-margin-top: 120px;
+		}
+
+		.main-content-area p {
+			line-height: 1.8;
+			color: #333;
+			font-size: 1.1rem;
+			margin-bottom: 15px;
+		}
+
+		.impact-fact {
+			background: #e3f2fd;
+			padding: 20px;
+			border-left: 6px solid #2196f3;
+			border-radius: 8px;
+			margin: 20px 0;
+			font-style: italic;
+		}
+	</style>
+</head>
+
+<body class="page-content">
+
+	<header>
+    <div class="logo-group">
+        <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+        <div class="logo">SPAR<span class="k">K</span></div>
+    </div>
+    <nav>
+        <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="ais.html">Simulator</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+            <span></span>
+        </ul>
+    </nav>
+</header>
+
+	<main class="main-content-area">
+		<h1>Water and Climate Change</h1>
+
+		<nav class="page-nav" aria-label="Page sections">
+			<ul>
+				<li><a href="#connection">Water Cycle Connection</a></li>
+				<li><a href="#glaciers">Melting Glaciers</a></li>
+				<li><a href="#weather">Extreme Weather</a></li>
+				<li><a href="#oceans">Warming Oceans</a></li>
+			</ul>
+		</nav>
+
+
+
+		<section id="connection">
+			<h2>The Water Cycle Connection</h2>
+
+			<p>Climate change is inextricably linked to water. As the Earth's atmosphere warms, it can hold more
+				moisture, which leads to more intense rainfall in some areas while causing faster evaporation in others.
+			</p>
+			<img src="images/watercycle.jpg"
+				alt="Mountain and the water cycle" class="content-img">
+			<div class="impact-fact">
+				"Water is the primary medium through which we will feel the effects of climate change."
+			</div>
+		</section>
+
+		
+
+
+
+		<section id="glaciers">
+			<h2>Melting Glaciers and Rising Seas</h2>
+
+			<p>Rising global temperatures are causing the world's glaciers and polar ice sheets to melt. This added
+				water flows into the oceans, causing sea levels to rise at an accelerating rate.</p>
+
+			<img src="images/glacier.jpg"
+				alt="Melting Ice" class="content-img">
+			<p>Coastal communities are at high risk of increased flooding and permanent loss of land, forcing millions
+				to reconsider where they live.</p>
+		</section>
+
+		
+
+
+		<section id="weather">
+			<h2>Extreme Weather Patterns</h2>
+
+			<p>A warmer climate increases the frequency and severity of water-related disasters. We are seeing more
+				frequent droughts that destroy crops and more violent storms that cause catastrophic flooding.</p>
+
+			<img src="images/drogut1.jpg"
+				alt= "A severe drought" class="content-img">
+
+			<p>By managing our water resources more sustainably, we can build resilience against these extreme events
+				and protect vulnerable populations.</p>
+		</section>
+
+
+
+
+		<section id="oceans">
+			<h2>Warming and Acidifying Oceans</h2>
+			<p>The ocean acts as a heat sink, absorbing over 90% of the excess heat from greenhouse gas emissions. This
+				warming disrupts marine life and affects global weather patterns.</p>
+
+			<img src="images/coral.jpg"
+				alt="A coral reef" class="content-img">
+
+			<p>Additionally, as oceans absorb CO2, they become more acidic, making it difficult for corals and shellfish
+				to survive, which threatens the entire marine food chain.</p>
+		</section>
+
+
+		<a href="#top" class="top-btn" aria-label="Back to top">&uarr;</a>
+
+	</main>
+
+	<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
+            <p>Taking climate action through everyday choices.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Coursework</h3>
+            <ul>
+                <li><a href="pageEditor_ST1.html">Page Editor</a></li>
+                <li><a href="validation_ST1.html">Validation Page</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Student Info</h3>
+            <p>Name: Yohan Singappulige</p>
+            <p>Student ID: 20250247</p>
+            <p>Role: Student 1</p>
+        </div>
+        <div class="footer-section">
+            <h3>Compliance</h3>
+            <ul>
+                <li><a href="pageEditor_ST1.html#compliance">Accessibility Statement</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+    </div>
+</footer>
+
+</body>
+
+</html>

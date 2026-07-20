@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Validation Report | Anjana Dodammullage | Student 2 | SPARK</title>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/pageEditor_validator.css">
+    </head>
+    
+    <body id="top" class="page-content">
+        
+        <header>
+            <div class="logo-group">
+                <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+                <div class="logo">SPAR<span class="k">K</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="ais.html">Simulator</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                    <span></span>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="stud">
+            <h1>Anjana Dodammullage &nbsp;|&nbsp; Team SPARK &nbsp;|&nbsp; Student 2</h1>
+        </section>
+        
+        <div class="container">
+            <main>
+                
+                <section>
+                    <h2 id="splashVal">Splash Screen validation report</h2>
+                    <p>I ran the Splash Screen (<code>splash.html</code>) through the W3C Nu HTML Checker and on the first pass it flagged one thing - the meta refresh attribute was missing a space after the semicolon (I had written <code>content="4;url=home.html"</code> which the browser was rendering fine but the spec requires a space). After fixing it to <code>content="4; url=home.html"</code> the page passed with zero errors and zero warnings. The CSS spinner animation and countdown JavaScript are both correctly structured with no validation issues.</p>
+                    <img src="validationSnapshots/validation_splash.png" alt="W3C Nu HTML Checker result for the Splash Screen showing zero errors and warnings">
+                    
+                    <h3>Back to Page Editor</h3>
+                    <p><a href="pageEditor_ST2.html#splash">Back to the Splash Screen section of the Page Editor</a></p>
+                </section>
+                
+                <section>
+                    <h2 id="aisVal">Action Impact Simulator validation report</h2>
+                    <p>When I first validated the AIS page (<code>ais.html</code>) I got a heading hierarchy error because I had jumped from <code>&lt;h1&gt;</code> straight to <code>&lt;h3&gt;</code> on the action card titles - skipping the h2 level which isn't in line with accessibility hierarchy. I fixed this by changing the card titles to <code>&lt;h2&gt;</code> and updating the matching CSS selectors so the styling still applied properly. On the second run the page passed with zero errors and zero warnings. All six action card images have proper alt text and the embedded style block contains well over the required five CSS rules.</p>
+                    <img src="validationSnapshots/validation_ais.png" alt="W3C Nu HTML Checker result for the AIS page showing zero errors and warnings">
+                    
+                    <h3>Back to Page Editor</h3>
+                    <p><a href="pageEditor_ST2.html#ais">Back to the Action Impact Simulator section of the Page Editor</a></p>
+                </section>
+                
+                <section>
+                    <h2 id="contentVal">Content Page validation report</h2>
+                    <p>The Content Page (<code>content_ST2.html</code>) actually passed on the very first attempt with zero errors, which was nice because by the time I got to it I had already learnt what to avoid from the earlier two pages. Heading hierarchy runs h1 to h2 to h3 in proper order. All content images include descriptive alt text. The internal jump navigation carries an <code>aria-label="Page sections"</code> so screen readers announce it as a landmark, and all anchor links inside it target valid section ids. The one small warning I got initially was about the <code>&lt;section&gt;</code> without a heading right after the hero but that was actually a text formatting thing - not real content missing a heading.</p>
+                    <img src="validationSnapshots/validation_content.png" alt="W3C Nu HTML Checker result for the Content Page showing zero errors and warnings">
+                    
+                    <h3>Back to Page Editor</h3>
+                    <p><a href="pageEditor_ST2.html#content">Back to the Content Page section of the Page Editor</a></p>
+                </section>
+                
+                <section>
+                    <h2 id="reflection">Reflection on Validation</h2>
+                    <p>Running the W3C validator on all three of my pages was really useful because it caught things that I wouldn't have spotted just by looking at the browser output. The meta refresh space issue on the Splash Screen is a good example - the page looked exactly right and worked exactly right, but the syntax was technically wrong according to the spec. Learning that even tiny attribute typos can fail validation was a lesson worth having early.</p>
+                    <p>The heading hierarchy fix on the AIS was probably my biggest takeaway. I had jumped straight from h1 to h3 because I thought the h3 looked better sized for the card titles - but that's what CSS is for. From now on I'll always keep heading order semantic first and then style them however I want with CSS. Running the validator early and often rather than only at the end made the whole process much less painful.</p>
+                </section>
+                
+                <p class="top"><a href="#top">Go top</a></p>
+            </main>
+            
+            <aside>
+                <h3>Core pages validated:</h3>
+                <ul class="top-level-ul">
+                    <li>Student 2 (Anjana Dodammullage)</li>
+                    <ul>
+                        <li><a href="#splashVal">Splash Screen</a></li>
+                        <li><a href="#aisVal">Action Impact Simulator</a></li>
+                        <li><a href="#contentVal">Content Page</a></li>
+                    </ul>
+                    <li><a href="#reflection">Reflection on Validation</a></li>
+                    <li><a href="pageEditor_ST2.html">Back to Page Editor</a></li>
+                </ul>
+            </aside>
+        </div>
+        
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
+                    <p>Taking climate action through everyday choices.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Coursework</h3>
+                    <ul>
+                        <li><a href="pageEditor_ST2.html">Page Editor</a></li>
+                        <li><a href="validation_ST2.html">Validation Page</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Student Info</h3>
+                    <p>Name: Anjana Dodammullage</p>
+                    <p>Student ID: 20251335</p>
+                    <p>Role: Student 2</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Compliance</h3>
+                    <ul>
+                        <li><a href="pageEditor_ST2.html#compliance">Accessibility Statement</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+            </div>
+        </footer>
+        
+    </body>
+</html>

@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Spark</title>
 	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 	<style>
 		* {
 			margin: 0;
@@ -15,7 +16,7 @@
 
 		body {
 			font-family: sans-serif;
-			background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('images/home-bg.jpg');
+			background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('./images/deer.jpg');
 			background-size: cover;
 			background-position: center;
 			background-attachment: fixed;
@@ -35,10 +36,10 @@
 		}
 
 		.logo {
-			font-size: 32px;
+			font-size: 1.5rem;
 			font-weight: 800;
-			color: white;
-			letter-spacing: -1.5px;
+			color: #074534;
+			letter-spacing: 0;
 
 		}
 
@@ -157,7 +158,7 @@
 
 		.logo-img:hover {
 			transform: scale(1.1);
-			
+			box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 		}
 
 
@@ -169,7 +170,7 @@
 			align-items: center;
 			height: 100vh;
 			text-align: center;
-			padding-top: 80px;
+			padding-top: 130px;
 		}
 
 		.main-topic h1 {
@@ -229,7 +230,7 @@
 			display: block;
 		}
 
-		.mission-card h3 {
+		.mission-card h2 {
 			color: white;
 			font-size: 1.8rem;
 			margin-bottom: 20px;
@@ -255,7 +256,7 @@
 			padding-top: 20px;
 		}
 
-		.card-highlights h4 {
+		.card-highlights h3 {
 			font-size: 0.9rem;
 			color: #2ecc71;
 			margin-bottom: 10px;
@@ -288,6 +289,15 @@
 			font-weight: 800;
 		}
 
+		.interactive-gallery p{
+			font-size: 1.2rem;
+			color: #cccccc;
+			max-width: 650px;
+			margin: 0 auto;
+			line-height: 1.6;
+
+		}
+
 		.interact-contain {
 			display: flex;
 			justify-content: center;
@@ -309,7 +319,7 @@
 		}
 
 		.portal-btn:hover {
-			background-color: #10b981;
+			background-color: #2ecc71;
 			transform: translateY(-3px);
 			box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 		}
@@ -385,29 +395,84 @@
 			font-size: 0.8rem;
 			color: #666;
 		}
+
+		/* Override for logo pill text visibility */
+		.logo-group .logo {
+			color: #074534 !important;
+			font-size: 1.5rem !important;
+			letter-spacing: 0 !important;
+		}
+		.logo-group .logo .k {
+			color: #2ecc71 !important;
+		}
+		.logo-group {
+			background: #ffffff !important;
+			padding: 8px 24px 8px 8px !important;
+			border-radius: 50px !important;
+			box-shadow: 0 6px 20px rgba(7, 69, 52, 0.15) !important;
+		}
+		.logo-img {
+			width: 44px !important;
+			height: 44px !important;
+			border: none !important;
+			border-radius: 50% !important;
+		}
+		/* Header backdrop for visibility */
+		header {
+			background: rgba(255, 255, 255, 0.15) !important;
+			backdrop-filter: blur(10px) !important;
+			-webkit-backdrop-filter: blur(10px) !important;
+			box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1) !important;
+		}
+
+	
+		.top-btn {
+			position: fixed;
+			bottom: 30px;
+			right: 30px;
+			width: 52px;
+			height: 52px;
+			border-radius: 50%;
+			background: #2ecc71;
+			color: #ffffff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.4rem;
+			font-weight: 700;
+			box-shadow: 0 6px 18px rgba(46, 204, 113, 0.5);
+			transition: 0.3s;
+			z-index: 999;
+			text-decoration: none;
+		}
+		.top-btn:hover {
+			background: #074534;
+			transform: translateY(-4px);
+			color: #ffffff;
+		}
 	</style>
 </head>
 
-<body class="page-home">
+<body id="top" class="page-home">
 
 	<header>
-        <div class="logo-group">
-            <img src="images/logo.png" alt="SPARK logo" class="logo-img">
-            <div class="logo">SPARK</div>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="home.html" class="active-page">Home</a></li>
-                <li><a href="ais.html">Simulator</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-                <li><a href="team.html">Team</a></li>
-                <li><a href="sitemap.html">Sitemap</a></li>
-                <span></span>
-            </ul>
-        </nav>
-    </header>
+    <div class="logo-group">
+        <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+        <div class="logo">SPAR<span class="k">K</span></div>
+    </div>
+    <nav>
+        <ul>
+        <li><a href="home.html" class="active-page">Home</a></li>
+        <li><a href="ais.html">Simulator</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+            <span></span>
+        </ul>
+    </nav>
+</header>
 
 	<main>
 
@@ -431,11 +496,11 @@
 					<div class="mission-card ">
 						<span class="card-no">01 / STRATEGY</span>
 						<img src="images/energy.png" alt="Icon representing solar panels and clean energy" class="card-icon">
-						<h3>Clean Energy</h3>
+						<h2>Clean Energy</h2>
 						<p> Transitioning to 100% renewable sources
 							to power our world sustainably and reduce emissions.</p>
 						<div class="card-highlights">
-							<h4>Key Actions:</h4>
+							<h3>Key Actions:</h3>
 							<ul>
 								<li>Switch to LED bulbs</li>
 								<li>Support solar initiatives</li>
@@ -449,12 +514,12 @@
 					<div class="mission-card ">
 						<span class="card-no">02 / BIOLOGY</span>
 						<img src="images/plant.png" alt="Icon of a growing tree representing nature sinks" class="card-icon">
-						<h3>Nature Sinks</h3>
+						<h2>Nature Sinks</h2>
 						<p>Restoring ecosystems like forests and
 							wetlands to naturally absorb carbon from
 							the atmosphere. </p>
 						<div class="card-highlights">
-							<h4>Key Actions:</h4>
+							<h3>Key Actions:</h3>
 							<ul>
 								<li>Plant native trees</li>
 								<li>Protect local wetlands</li>
@@ -469,11 +534,11 @@
 						<span class="card-no">03 / ECONOMY</span>
 						<img src="images/recycle.png" alt="Icon of recycling arrows representing circular economy"
 							class="card-icon">
-						<h3>Circular Economy</h3>
+						<h2>Circular Economy</h2>
 						<p> Reducing waste and reusing resources to
 							create a closed-loop system that protects nature.</p>
 						<div class="card-highlights">
-							<h4>Key Actions:</h4>
+							<h3>Key Actions:</h3>
 							<ul>
 								<li>Practice 3R's (Reduce, Reuse, Recycle)</li>
 								<li>Avoid fast fashion</li>
@@ -487,11 +552,11 @@
 					<div class="mission-card ">
 						<span class="card-no">04 / CONSERVATION</span>
 						<img src="images/sea.png" alt="Icon of a wave representing ocean protection" class="card-icon">
-						<h3>Ocean Protection</h3>
+						<h2>Ocean Protection</h2>
 						<p>Preserving marine biodiversity and cleaning our oceans
 							to maintain a healthy global ecosystem.</p>
 						<div class="card-highlights">
-							<h4>Key Actions:</h4>
+							<h3>Key Actions:</h3>
 							<ul>
 								<li>Stop single-use plastics</li>
 								<li>Choose sustainable seafood</li>
@@ -508,6 +573,7 @@
 
 		<section class="interactive-gallery">
 			<h2>TEAM EXPLORATION</h2>
+			<p>Dive deeper into the four key themes our team has researched and written about.</p><br>
 			<div class="interact-contain">
 				<a href="content_ST1.html" class="portal-btn active">Water & Climate</a>
 				<a href="content_ST2.html" class="portal-btn">Transport & Travel</a>
@@ -519,48 +585,41 @@
 
 
 
+	
+		<a href="#top" class="top-btn" aria-label="Back to top">&uarr;</a>
 	</main>
 
 
 	<footer>
-		<div class="footer-container">
-			<div class="footer-section">
-				<div class=" logo">SPARK</div>
-				<p>Empowering inidividuals to take climate action for a sustainable future.</p>
-			</div>
-
-			<div class="footer-section">
-				<h4>Coursework</h4>
-				<ul>
-					<li><a href="pageEditor_ST1.html">Page Editor</a></li>
-					<li><a href="validation_ST1.html">Validation Page</a></li>
-				</ul>
-			</div>
-
-
-			<div class="footer-section">
-				<h4>Student Info: </h4>
-				<p>Name: Yohan Nimneth Hewa Singappulige</p>
-				<p>Student ID: 20250247</p>
-				<p>Role: Student 1</p>
-			</div>
-
-
-			<div class="footer-section">
-				<h4>Compliance</h4>
-				<ul>
-					<li><a href="#">Accessibility Statement</a></li>
-				</ul>
-			</div>
-
-
-		</div>
-
-
-		<div class="footer-bottom">
-			<p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
-		</div>
-	</footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
+            <p>Taking climate action through everyday choices.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Coursework</h3>
+            <ul>
+                <li><a href="pageEditor_ST1.html">Page Editor</a></li>
+                <li><a href="validation_ST1.html">Validation Page</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Student Info</h3>
+            <p>Name: Yohan Singappulige</p>
+            <p>Student ID: 20250247</p>
+            <p>Role: Student 1</p>
+        </div>
+        <div class="footer-section">
+            <h3>Compliance</h3>
+            <ul>
+                <li><a href="pageEditor_ST1.html#compliance">Accessibility Statement</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+    </div>
+</footer>
 
 
 

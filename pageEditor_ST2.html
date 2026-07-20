@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Page Editor | Anjana Dodammullage | Student 2 | SPARK</title>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/pageEditor_validator.css">
+    </head>
+    
+    <body id="top" class="page-content">
+        
+        <header>
+            <div class="logo-group">
+                <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+                <div class="logo">SPAR<span class="k">K</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="ais.html">Simulator</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                    <span></span>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="stud">
+            <h1>Anjana Dodammullage &nbsp;|&nbsp; Team SPARK &nbsp;|&nbsp; Student 2</h1>
+        </section>
+        
+        <div class="container">
+            <main>
+                
+                <section>
+                    <h2 id="splash">Splash Screen</h2>
+                    <h3>Technical Description</h3>
+                    <p>For the Splash Screen I built a standalone landing page that acts as the first impression of the SPARK site. The page does not use the shared template because the coursework brief says the splash should be its own thing. I used semantic HTML5 to structure it - the main content is inside a <code>&lt;div class="splash-container"&gt;</code> that holds the logo image, a page title, the mission text, our team members, a CSS loader, a countdown paragraph and a Skip Intro link. The redirection to home page happens through a <code>&lt;meta http-equiv="refresh" content="4; url=home.html"&gt;</code> tag in the head, which is triggered automatically after 4 seconds.</p>
+                    <p>On the styling side, I applied a dark linear gradient overlay on top of a background image to keep the white text readable no matter what the photo behind is. I centered everything using flexbox (display: flex, align-items: center, justify-content: center) which was cleaner then using absolute positioning like I tried first. The loader animation is entirely CSS - I used a <code>&lt;div class="loader"&gt;</code> element with three transparent borders and one green top border, spun using a <code>@keyframes spin</code> animation with <code>animation: spin 1s linear infinite</code>. The brief specifically banned GIFs so making it in pure CSS was a requirement.</p>
+                    <p>The countdown is powered by JavaScript. I used <code>setInterval</code> that fires every 1000ms and decrements a count variable from 4. The updated number is written back into <code>&lt;span id="count"&gt;</code> using <code>textContent</code>. When count hits 0 the interval is cleared using <code>clearInterval()</code> so it doesn't keep running in the background. The Skip Intro button is a normal anchor tag pointing to home.html which lets people bypass the wait if they want.</p>
+                    
+                    <h3>Accessibility</h3>
+                    <p>All text sits above the dark overlay layer so contrast stays good against any image behind it. I gave the logo image proper alt text describing what it is. The Skip Intro link is a real anchor element not a fake button styled as one, which means keyboard users can Tab straight to it and screen readers pick it up as a link. The h1 gives the page a clear document title for assistive tech. I also kept the redirect delay at 4 seconds which is enough to read the tagline without feeling rushed but not so long that keyboard users get stuck.</p>
+                    
+                    <h3>Link to the Validation Page</h3>
+                    <p><a href="validation_ST2.html#splashVal">View the Splash Screen validation report</a></p>
+                    
+                    <h3>Link to the Page</h3>
+                    <p><a href="splash.html" target="_blank">Open the Splash Screen</a></p>
+                </section>
+                
+                <section>
+                    <h2 id="ais">Action Impact Simulator</h2>
+                    <h3>Technical Description</h3>
+                    <p>The AIS is my main interactive page and probably where most of my JavaScript marks come from. The page uses the shared template with the standard header, main and footer. Inside main, I used a <code>&lt;section&gt;</code> for the intro hero and then a grid layout for the 6 climate action cards. Each card is a <code>&lt;div class="action-card"&gt;</code> with a <code>data-points</code> attribute holding the score value, plus an image, a title, a description and a small points display. Below the cards there's a feedback panel that shows count, total, level and a message.</p>
+                    <p>For the CSS I used CSS Grid to split the cards into two rows - the top row has 2 large cards using <code>grid-template-columns: 1fr 1fr</code> and the bottom row has 4 smaller cards using <code>repeat(4, 1fr)</code>. The selected state adds a bright green border, lifts the card up with <code>transform: translateY(-4px)</code> and shows a small tick mark using the <code>::after</code> pseudo element. I also added media queries so on smaller screens the grid collapses to 2 columns and then 1 column so cards don't squash together. The background image on the body swaps between three photos depending on the impact level - this is done through JavaScript setting <code>document.body.style.backgroundImage</code>.</p>
+                    <p>The JavaScript is split into three short functions. <code>toggleCard(this)</code> is called on click and it flips the selected class on the card that was clicked, then calls <code>updateFeedback()</code>. <code>updateFeedback()</code> uses <code>querySelectorAll('.action-card.selected')</code> to find all the currently selected cards, sums up their data-points values (wrapped in <code>Number()</code> because I hit a bug where the values were being concatenated as strings instead of added), and writes the total to the score element. Then an if/else if chain decides the impact level - Low (0-6), Medium (7-13) or High (14+) - and updates the label, message and body background. The reset button uses <code>resetSimulator()</code> which iterates every card with forEach and removes the selected class.</p>
+                    
+                    <h3>Accessibility</h3>
+                    <p>All six card images have proper alt text describing the action, not just the object. Cards have a clear visible selection state with the bright green border and tick mark. The hover lift also gives feedback that the card is interactive. Heading hierarchy runs h1 to h2 to h3 in order. The feedback panel updates right after each click so users always see the current impact level - useful for screen reader users too. One thing I know could be improved is the cards use div elements with onclick handlers - if I had more time I would swap them for <code>&lt;button&gt;</code> elements or add <code>role="button"</code> with <code>tabindex="0"</code> so keyboard-only users can activate them by pressing Enter or Space.</p>
+                    
+                    <h3>Link to the Validation Page</h3>
+                    <p><a href="validation_ST2.html#aisVal">View the AIS validation report</a></p>
+                    
+                    <h3>Link to the Page</h3>
+                    <p><a href="ais.html" target="_blank">Open the Action Impact Simulator</a></p>
+                </section>
+                
+                <section>
+                    <h2 id="content">Content Page - Transport &amp; Travel</h2>
+                    <h3>Technical Description</h3>
+                    <p>The Content Page covers Transport and Travel which is my angle within SDG 13 Climate Action. I structured it using semantic HTML5 - the main content is wrapped in a <code>&lt;main&gt;</code> with a hero section at the top, then a <code>&lt;nav class="jump-nav"&gt;</code> for internal navigation, then 5 content sections. Each content section is a proper <code>&lt;section&gt;</code> element with a unique id (like <code>#scale</code>, <code>#commute</code>, <code>#flights</code>) so the jump-nav pill links can jump directly to it. Heading structure is strict - h1 in the hero, h2 for each section, h3 in the footer.</p>
+                    <p>For CSS I used flexbox on the hero to center everything and I put a dark linear gradient overlay on top of the background image so the white h1 reads properly. Each content section has scroll-margin-top of 120px so when someone clicks a jump-nav pill the target heading doesn't end up hidden behind the fixed header - this took me a while to figure out because at first the jumps were landing but I couldn't see the heading. Every content section header has a small green left border which gives visual rhythm without needing dividers. Images are styled with border-radius, box-shadow, responsive max-width and a bit of margin so they look like proper article images.</p>
+                    <p>The Go to Top button in the bottom right corner is done with pure CSS - <code>position: fixed; bottom: 30px; right: 30px</code> and an anchor pointing to the body <code>id="top"</code>. No JavaScript needed for it. The whole content page works even without JavaScript because everything runs on HTML anchors and CSS - which was a nice thing to realise because it means the page loads instantly and stays fully useable even if scripts fail.</p>
+                    
+                    <h3>Accessibility</h3>
+                    <p>Every content image has meaningful alt text describing whats in it. Heading hierarchy is h1 to h2 to h3 in order with no skips. The jump-nav has an <code>aria-label="Page sections"</code> so screen readers announce it as a landmark. The Go to Top button has <code>aria-label="Back to top"</code>. Contrast between the dark green text (#074534) on light backgrounds is comfortably within WCAG AA. External reference links use <code>target="_blank"</code> so users don't lose where they were reading. I grouped all citations into the References section on the Page Editor rather than dumping them at the bottom of the content page which keeps the reading flow clean.</p>
+                    
+                    <h3>Link to the Validation Page</h3>
+                    <p><a href="validation_ST2.html#contentVal">View the Content Page validation report</a></p>
+                    
+                    <h3>Link to the Page</h3>
+                    <p><a href="content_ST2.html" target="_blank">Open the Content Page</a></p>
+                </section>
+                
+                <section>
+                    <h2 id="challenge">Challenges and Lessons Learned</h2>
+                    <p>The biggest challenge with the Splash Screen was actually a really small thing - my countdown was working in the JavaScript variable but the number on the screen was frozen. I spent maybe half an hour debugging before I realized I was decrementing the count variable but forgetting to write it back to the DOM with textContent. Once I added that line the countdown worked perfectly. Small mistake but it taught me to always check the render path when JS state changes.</p>
+                    <p>For the AIS, my first version had six separate onclick handlers - one per card. It worked but was ugly and adding a seventh action would have been copy-paste hell. I refactored it into a single <code>toggleCard(this)</code> function that reads each card's <code>data-points</code> attribute. Cut the code roughly in half. Later I hit another bug where selecting cards was updating the total wrong - it was appending strings instead of summing. Wrapping the read in <code>Number()</code> fixed it. Two small bugs but they both taught me valueable lessons about JavaScript type coercion and DRY principles.</p>
+                    <p>For the Content Page, the jump-nav pills were jumping to the right anchor but the target heading was always hidden behind the fixed header. Turns out this is what <code>scroll-margin-top</code> is designed to solve - I added 120px on every content section and the offset worked cleanly. Same issue on the hero at first (the h1 was covered by the header on page load) which I fixed by increasing the hero's padding-top to 130px. Now I use these tricks by default whenever there's a fixed header sitting above anchor-based navigation.</p>
+                    <p>Overall lesson - small typos or missing lines can silently break stuff that looks like it should just work. I learnt to check three things when a page misbehaves: the browser console for errors, the elements panel for wrong or missing classes and the network tab for failed asset loads. Most of my bugs were one of those three.</p>
+                </section>
+                
+                <section>
+                    <h2 id="accessibility">Accessibility Considerations</h2>
+                    <p>Across all my three pages I made sure accessibility was baked in from the start rather then bolted on at the end. Here's what I did:</p>
+                    <ul>
+                        <li>Every image has descriptive alt text - not just "image" but a proper description of whats being shown.</li>
+                        <li>Semantic HTML5 elements are used everywhere: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>.</li>
+                        <li>Heading hierarchy runs h1 to h2 to h3 in order on every page with no skips.</li>
+                        <li>The Content Page jump navigation uses <code>aria-label="Page sections"</code> and the Go to Top button uses <code>aria-label="Back to top"</code>.</li>
+                        <li>Colour contrast between white text (#ffffff) on the dark forest backgrounds (#074534, #051b11) meets WCAG AA guidelines.</li>
+                        <li>Interactive elements like the Skip button and nav links are proper anchor or button elements so they're keyboard accessible by default with visible focus states.</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2 id="compliance">Compliance with JANET Regulations</h2>
+                    <p>All pages I created for SPARK follow JANET regulations for responsible educational web publication. The following principles were applied:</p>
+                    <ul>
+                        <li><strong>Original content:</strong> Everything written on my three pages is my own words. No copy-paste from the UN SDG site or any other source.</li>
+                        <li><strong>Image sourcing:</strong> All images come from royalty-free platforms (Vecteezy, Unsplash, Piqsels, Wallpaperflare) that permit non-commercial educational use. Full attribution is in the References section below.</li>
+                        <li><strong>No personal data collection:</strong> The site doesn't collect, store or transmit any personal user data. No cookies, no local storage, no trackers.</li>
+                        <li><strong>Appropriate content:</strong> All content is educational and aligned with SDG 13. Nothing offensive, discriminatory or harmful.</li>
+                        <li><strong>Academic integrity:</strong> All HTML, CSS and JavaScript on my pages was written by me from scratch. No pre-built templates or copied code.</li>
+                        <li><strong>Accessibility compliance:</strong> Pages follow WCAG accessibility principles including semantic HTML, alt text and keyboard navigation.</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+                    <p>Six team meetings held across the project timeline. My individual contribution is recorded below.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Meeting</th>
+                                <th>Date &amp; Time</th>
+                                <th>Format</th>
+                                <th>Objective</th>
+                                <th>Attended</th>
+                                <th>My Individual Contribution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>25 Jun 2026, 10:00</td>
+                                <td>In person - IIT campus</td>
+                                <td>Agree SDG and assign roles</td>
+                                <td>Yes</td>
+                                <td>Argued for SDG 13 Climate Action because it has the strongest individual-action angle for young people. Volunteered to take Splash Screen and Action Impact Simulator since I had prior JavaScript experience. Took Transport and Travel as my content angle since Sri Lanka has a really obvious traffic problem.</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>30 Jun 2026, 14:00</td>
+                                <td>WhatsApp call</td>
+                                <td>Design language and visual identity</td>
+                                <td>Yes</td>
+                                <td>Suggested a forest green plus emerald palette since it fits SDG 13 visually. Proposed the Poppins plus Open Sans font pair for headings and body. Shared reference sites from my saved Pinterest board.</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>4 Jul 2026, 11:00</td>
+                                <td>WhatsApp call</td>
+                                <td>Progress check on splash and home drafts</td>
+                                <td>Yes</td>
+                                <td>Demoed my Splash Screen countdown and CSS loader to the team. Flagged the no-GIF rule early because Yohan was about to grab a loader gif from Google. Reviewed the first version of the shared style sheet.</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>8 Jul 2026, 15:00</td>
+                                <td>In person - IIT library</td>
+                                <td>AIS logic walkthrough and content page structure</td>
+                                <td>Yes</td>
+                                <td>Walked the team through my AIS scoring logic and how the background image swap works. Agreed on the jump-nav pattern for all four content pages so they would look consistent across the site.</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>12 Jul 2026, 16:00</td>
+                                <td>WhatsApp call</td>
+                                <td>Template pivot decision and style refactor</td>
+                                <td>Yes</td>
+                                <td>When Yohan proposed a template change I volunteered to merge the old and new stylesheets into one shared style.css so nobody had to rebuild their pages from scratch. Delivered the merged CSS same night around 11pm.</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>16 Jul 2026, 13:00</td>
+                                <td>In person - IIT campus</td>
+                                <td>Final validation and submission prep</td>
+                                <td>Yes</td>
+                                <td>Ran the W3C validator on my three pages and fixed the heading hierarchy errors on AIS. Captured validation screenshots for my validation page. Confirmed GitHub Pages deployment was working on my pages.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+                <section>
+                    <h2 id="ref">References</h2>
+                    <p><strong>Academic and Learning Resources</strong></p>
+                    <ul class="ref">
+                        <li>Ritchie, H. (2023) 'Which form of transport has the smallest carbon footprint?', <em>Our World in Data</em>. Available at: <a href="https://ourworldindata.org/travel-carbon-footprint" target="_blank">https://ourworldindata.org/travel-carbon-footprint</a> (Accessed: 15 July 2026).</li>
+                        <li>Ritchie, H. and Roser, M. (2020) 'Cars, planes, trains: where do CO2 emissions from transport come from?', <em>Our World in Data</em>. Available at: <a href="https://ourworldindata.org/co2-emissions" target="_blank">https://ourworldindata.org/co2-emissions</a> (Accessed: 15 July 2026).</li>
+                        <li>LAUGFS Eco Sri (2026) 'How Traffic Congestion in Colombo Is Silently Affecting Your Health'. Available at: <a href="https://www.ecosri.lk/how-traffic-congestion-in-colombo-is-silently-affecting-your-health/" target="_blank">https://www.ecosri.lk</a> (Accessed: 15 July 2026).</li>
+                        <li>Department of Motor Traffic Sri Lanka (2025) <em>Vehicle Population 2014-2025</em>. Available at: <a href="https://dmt.gov.lk/images/2026/Vehicle_Population_2014-2025.pdf" target="_blank">https://dmt.gov.lk</a> (Accessed: 15 July 2026).</li>
+                        <li>World Economic Forum (2018) 'If shipping were a country, it would be the world's sixth-biggest greenhouse gas emitter'. Available at: <a href="https://www.weforum.org/stories/2018/04/if-shipping-were-a-country-it-would-be-the-world-s-sixth-biggest-greenhouse-gas-emitter/" target="_blank">https://www.weforum.org</a> (Accessed: 15 July 2026).</li>
+                        <li>Mozilla Developer Network (2026) <em>CSS scroll-margin-top</em>. Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-top" target="_blank">https://developer.mozilla.org</a> (Accessed: 12 July 2026).</li>
+                        <li>W3C (2026) <em>Nu HTML Checker</em>. Available at: <a href="https://validator.w3.org/nu/" target="_blank">https://validator.w3.org/nu/</a> (Accessed: 17 July 2026).</li>
+                        <li>Duckett, J. (2011) <em>HTML and CSS: Design and Build Websites</em>, John Wiley &amp; Sons Inc., Indianapolis.</li>
+                        <li>Module lecture notes (2026) <em>4COSC011W Web Design and Development</em>. University of Westminster.</li>
+                    </ul>
+                    <p style="margin-top:20px;"><strong>Image References</strong></p>
+                    <ul class="ref">
+                        <li>Logo (earth icon): <a href="https://www.flaticon.com/free-icon/earth_4284837" target="_blank">Flaticon - Earth icon by juicy_fish</a></li>
+                        <li>Splash Screen background (bird's eye view of beach): <a href="https://www.vecteezy.com/photo/1738048-bird-s-eye-view-of-beach" target="_blank">Vecteezy</a></li>
+                        <li>bg-high.jpg (lush green forest): <a href="https://www.wallpaperflare.com/laptop-backgrounds-nature-images-1920x1200-tree-water-plant-wallpaper-qnwfb" target="_blank">Wallpaperflare</a></li>
+                        <li>bg-low.jpg (cracked dry earth): <a href="https://www.wallpaperflare.com/cracked-cracks-floor-clay-dehydrated-drought-earth-wallpaper-ydtn" target="_blank">Wallpaperflare</a></li>
+                        <li>bg-med.jpg (Teide landscape): <a href="https://www.wallpaperflare.com/pico-del-teide-teyde-teide-national-park-tenerife-canary-islands-wallpaper-wfsrz" target="_blank">Wallpaperflare</a></li>
+                        <li>image1.jpg (person cycling): <a href="https://unsplash.com/photos/a-person-rides-a-bicycle-on-a-city-street-rzjB9tl3lPk" target="_blank">Unsplash</a></li>
+                        <li>image2.jpg (public transport): <a href="https://www.piqsels.com/en/public-domain-photo-fssmv" target="_blank">Piqsels</a></li>
+                        <li>image3.jpg (LED bulb): <a href="https://www.piqsels.com/en/public-domain-photo-jdwcs" target="_blank">Piqsels</a></li>
+                        <li>image4.jpg (plate of vegetables): <a href="https://www.wallpaperflare.com/food-diet-healthy-fresh-nutrition-vegetables-fruit-tomato-wallpaper-muqrv" target="_blank">Wallpaperflare</a></li>
+                        <li>image5.jpg (reusable water bottle): <a href="https://www.piqsels.com/en/public-domain-photo-zsnih" target="_blank">Piqsels</a></li>
+                        <li>image6.jpg (planting a tree): <a href="https://www.womansway.ie/main-blog/2022/2/7/plant-a-tree" target="_blank">Womansway</a></li>
+                        <li>content2-hero.jpg (traffic aerial highway): <a href="https://unsplash.com/photos/vehicles-on-road-at-daytime-8p6KaacdIj8" target="_blank">Unsplash</a></li>
+                        <li>content2-scale.jpg (parking lot aerial): <a href="https://unsplash.com/photos/cars-parked-on-parking-lot-during-daytime-9evmIoRN7aA" target="_blank">Unsplash</a></li>
+                        <li>content2-commute.jpg (train passengers): <a href="https://unsplash.com/photos/people-riding-train-mOxjQDw23ds" target="_blank">Unsplash</a></li>
+                        <li>content2-flight.jpg (airplane takeoff): <a href="https://unsplash.com/photos/a-large-jetliner-taking-off-from-an-airport-runway-KvOr8TWQhyo" target="_blank">Unsplash</a></li>
+                        <li>content2-colombo.jpg (Colombo view): <a href="https://unsplash.com/photos/a-view-of-a-fort-and-road-GoPPsdFh8CY" target="_blank">Unsplash</a></li>
+                    </ul>
+                </section>
+                
+                <p class="top"><a href="#top">Go top</a></p>
+            </main>
+            
+            <aside>
+                <h3>Core pages developed:</h3>
+                <ul class="top-level-ul">
+                    <li>Student 2 (Anjana Dodammullage)</li>
+                    <ul>
+                        <li><a href="#splash">Splash Screen</a></li>
+                        <li><a href="#ais">Action Impact Simulator</a></li>
+                        <li><a href="#content">Content Page</a></li>
+                    </ul>
+                    <li><a href="#challenge">Challenges &amp; Lessons</a></li>
+                    <li><a href="#accessibility">Accessibility</a></li>
+                    <li><a href="#compliance">JANET Compliance</a></li>
+                    <li><a href="#group">Meetings Log</a></li>
+                    <li><a href="#ref">References</a></li>
+                </ul>
+            </aside>
+        </div>
+        
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
+                    <p>Taking climate action through everyday choices.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Coursework</h3>
+                    <ul>
+                        <li><a href="pageEditor_ST2.html">Page Editor</a></li>
+                        <li><a href="validation_ST2.html">Validation Page</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Student Info</h3>
+                    <p>Name: Anjana Dodammullage</p>
+                    <p>Student ID: 20251335</p>
+                    <p>Role: Student 2</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Compliance</h3>
+                    <ul>
+                        <li><a href="pageEditor_ST2.html#compliance">Accessibility Statement</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+            </div>
+        </footer>
+        
+    </body>
+</html>

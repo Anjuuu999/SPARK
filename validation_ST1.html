@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Report | Yohan Nimneth | Student 1 | SPARK</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/pageEditor_validator.css">
+</head>
+
+<body id="top" class="page-content">
+
+    <header>
+        <div class="logo-group">
+            <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+            <div class="logo">SPAR<span class="k">K</span></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="ais.html">Simulator</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+                <span></span>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="stud">
+        <h1>Yohan Nimneth &nbsp;|&nbsp; Team SPARK &nbsp;|&nbsp; Student 1</h1>
+    </section>
+
+    <div class="container">
+        <main>
+
+            <section>
+                <h2 id="homeVal">Home Page validation report</h2>
+                <p>The Home Page was validated using the W3C Nu HTML Checker to ensure technical correctness and standard compliance. On the first pass, the report identified a few minor issues, including a stray closing div tag in the mission grid and a missing alt attribute for the Earth logo in the header. I also had to correct a syntax error regarding an unquoted attribute in the navigation section. I immediately fixed the HTML nesting and added the necessary descriptive text to the header image. Following these adjustments, a second pass was conducted, and the page now passes cleanly with no errors or warnings, as shown in the screenshot. This validation process was essential for ensuring that the site's complex CSS-driven navigation and grid layout remain robust and functional across all modern web browsers</p>
+                <img src="validationSnapshots/validation_home.png" alt="W3C Nu HTML Checker result for the Home Page showing zero errors and warnings">
+
+                <h3>Back to Page Editor page</h3>
+                <p><a href="pageEditor_ST1.html#home">Back to the Home Page section of the Page Editor.</a></p>
+            </section>
+
+            <section>
+                <h2 id="galleryVal">Gallery Page validation report</h2>
+                <p>Validating the Gallery Page was a crucial step in ensuring that the JavaScript-driven modal and the interactive grid were built on a solid HTML foundation. During the first validation attempt, I encountered two errors related to duplicate IDs within the gallery cards and a missing type attribute on the customization buttons. I resolved these by assigning unique IDs to every element and strictly following HTML5 button specifications to ensure the script targets the correct elements. After refactoring the code, the page now passes the W3C check without any errors or warnings. Ensuring that the gallery code is structurally valid helps prevent potential conflicts with the JavaScript logic and guarantees a smoother, more reliable interactive experience for users across different platforms.</p>
+                <img src="validationSnapshots/validation_gallery.png" alt="W3C Nu HTML Checker result for the Gallery Page showing zero errors and warnings">
+
+                <h3>Back to Page Editor page</h3>
+                <p><a href="pageEditor_ST1.html#gallery">Back to the Gallery Page section of the Page Editor.</a></p>
+            </section>
+
+            <section>
+                <h2 id="contentVal">Content Page validation report</h2>
+                <p>For the Content Page I ran a W3C validation to verify that the long-form text and internal navigation were correctly structured. Initially the validator flagged an error regarding the placement of an anchor (a) tag inside another block-level element in a way that violated standard nesting rules. I also had to fix a warning concerning the heading hierarchy where an h3 tag was used without a preceding h2. I reorganized the section tags and adjusted the heading levels to follow a logical order. Consequently the page now passes the validation check with zero errors. This ensures that the internal jump-links and the Go to Top button work consistently across different browsers and assistive technologies.</p>
+                <img src="validationSnapshots/validation_content_ST1.png" alt="W3C Nu HTML Checker result for the Content Page showing zero errors and warnings">
+
+                <h3>Back to Page Editor page</h3>
+                <p><a href="pageEditor_ST1.html#content">Back to the Content Page section of the Page Editor.</a></p>
+            </section>
+
+            <section>
+                <h2 id="reflection">Reflection on Validation</h2>
+                <p>Running the W3C validator on my three pages taught me that even code that looks right in the browser can still have hidden issues. The stray closing div on the Home Page was one of those - the page rendered fine but the extra tag was breaking the DOM tree in ways I hadn't noticed. The heading hierarchy warning on the Content Page was another lesson - I had used h3 for card titles because it looked the right size but skipping h2 breaks accessibility. I now use CSS for sizing and keep heading order semantic.</p>
+                <p>The Gallery Page duplicate ID issue was a mistake I want to remember. When I built the modal I copy-pasted a card five times and forgot to update the ids. It didn't visually break anything but multiple ids with the same value is invalid HTML and confuses JavaScript. From now on I run the validator at every check-point rather than only at the end.</p>
+            </section>
+
+            <p class="top"><a href="#top">Go top</a></p>
+        </main>
+
+        <aside>
+            <h3>Core pages validated:</h3>
+            <ul class="top-level-ul">
+                <li>Student 1 (Yohan Nimneth)</li>
+                <ul>
+                    <li><a href="#homeVal">Home Page</a></li>
+                    <li><a href="#galleryVal">Gallery Page</a></li>
+                    <li><a href="#contentVal">Content Page</a></li>
+                </ul>
+                <li><a href="#reflection">Reflection on Validation</a></li>
+                <li><a href="pageEditor_ST1.html">Back to Page Editor</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
+                <p>Empowering individuals to take climate action for a sustainable future.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Coursework</h3>
+                <ul>
+                    <li><a href="pageEditor_ST1.html">Page Editor</a></li>
+                    <li><a href="validation_ST1.html">Validation Page</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Student Info</h3>
+                <p>Name: Yohan Nimneth</p>
+                <p>Student ID: w2212844</p>
+                <p>Role: Student 1</p>
+            </div>
+            <div class="footer-section">
+                <h3>Compliance</h3>
+                <ul>
+                    <li><a href="pageEditor_ST1.html#compliance">Accessibility Statement</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

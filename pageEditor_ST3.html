@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Page Editor | Krishen Silva | Student 3 | SPARK</title>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/pageEditor_validator.css">
+    </head>
+    
+    <body id="top" class="page-content">
+        
+        <header>
+            <div class="logo-group">
+                <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+                <div class="logo">SPAR<span class="k">K</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="ais.html">Simulator</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                    <span></span>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="stud">
+            <h1>Krishen Silva &nbsp;|&nbsp; Team SPARK &nbsp;|&nbsp; Student 3</h1>
+        </section>
+        
+        <div class="container">
+            <main>
+                
+                <section>
+                    <h2 id="feedback">Feedback page</h2>
+                    <h3>Technical Description</h3>
+                    <p>I did use semantic HTML5 tags to create a clean and accessible structure for the Feedback page. The content of the page is grouped into the main content of the page using a <code>&lt;main&gt;</code> tag, and into logical sections using <code>&lt;section&gt;</code> elements for the program directory, the review summary, and for the input form itself. On the feedback form, I used the <code>&lt;fieldset&gt;</code> tag to create groups of related fields and <code>&lt;legend&gt;</code> tag to include descriptions of the form fields for assistive technologies. I selected a type of "text", "email", "tel", "date" and "datetime-local" for the input types and included a "textarea" for the custom message, so that the user is asked only for the correct data types from the beginning.</p>
+                    <p>On the presentation layer, I utilized cutting-edge CSS skills to develop a layout that is attractive and orderly. To keep it simple and usable while still allowing the program cards to roll horizontally, I used Flexbox and the overflow-x: auto property. I used smooth transitions and hover behaviour for the cards and submission buttons so that they would 'jump' or change colour slightly when a user interacted with them to emphasise interactivity. Colour and spacing were organised and the layout is clean and easy-to-read for all screen sizes.</p>
+                    <p>The last layer of the page is the interactive JavaScript logic that is used to enhance the user experience and perform client-side validation on the form before it is sent. I added a real-time character counter activated by the text area's input event listener that dynamically updates the number of characters that have been entered into the text area and shows the number of characters remaining. The script catches the submit event, prevents the page from refreshing, and iterates through all the fields checking if they are blank, or if the email and the telephone field do not satisfy certain pattern. If an error is found, then the script draws a red outline around the particular field of the form, and an error message appears immediately below the field; if no errors are found, then a green success message banner is drawn, and the form is reset completely.</p>
+                    
+                    <h3>Accessibility</h3>
+                    <p>I have made a self-guided effort to make the Feedback page accessible and inclusive for all, from the beginning. I applied semantics with HTML5 elements such as <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code> and <code>&lt;header&gt;</code> to provide an assistive technology with a clear path through the document. The hierarchy of the headings is logical; that is, there are no missing headings between <code>&lt;h1&gt;</code> and <code>&lt;h4&gt;</code>; screen readers can give an outline of the headings. The interactive features were done with a <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code> to organize the form controls properly, and by adding a <code>for</code> attribute on the <code>&lt;label&gt;</code> element to match the input element it presents, to design the interactive elements like labels to connect with the input elements. And by applying <code>for</code> attribute on the <code>&lt;label&gt;</code> element to match the <code>&lt;input&gt;</code> element it presents, to design the interactive elements like <code>&lt;label&gt;</code> elements to connect with its input element. Also added <code>role="status"</code> attribute on the confirmation message to announce the changes immediately. The images found in program thumbnails, for example, have descriptive <code>alt</code> text to communicate the meaning of the image to a visually impaired user. A current restriction, however, is that the program directory scrolls sideways and is too mouse-heavy - the next step will be making a program even more keyboard friendly by adding arrow-key support to fully keyboard enable scrolling.</p>
+                    
+                    <h3>Link to the validation page</h3>
+                    <p><a href="validation_ST3.html#feedbackVal">Open the Feedback page validation section</a>, which contains the W3C snapshot and reflection for this page.</p>
+                    
+                    <h3>Link to the page</h3>
+                    <p><a href="feedback.html">Open the Feedback page.</a></p>
+                </section>
+                
+                <section>
+                    <h2 id="team">Team page</h2>
+                    <h3>Technical Description</h3>
+                    <p>For formatting the Team page I used the appropriate HTML5 elements in semantic HTML5, so that it is structured and laid out properly to create a clear and accessible hierarchy. The structure of the layout is based on <code>&lt;main&gt;</code> element that contains the main content of a web page and introduces a <code>&lt;section&gt;</code> element that will contain the introductory content. The group members are enumerated with individual <code>&lt;article&gt;</code> tags and the special tabindex="0" attribute. This design choice helps to make every team profile an interactive card widget that is easily recognized by screen readers and keyboard users. The use of text sizes is logical, with <code>&lt;h1&gt;</code> for the title and then <code>&lt;h3&gt;</code> for the member names for each section, creating a well-structured and easy-to-navigate outline. Within each profile, further-nested lists are implemented with <code>&lt;ul&gt;</code> and <code>&lt;li&gt;</code> tags, to ensure that particular contributions to coursework are clearly distinguished.</p>
+                    <p>The styling and presentation required a strong CSS Grid layout with grid-template-columns: repeat(2, 1fr) to partition the screen into a balanced, two column layout. This page relies on advanced CSS selector combinations such as :hover, :focus and :focus-within to provide all of the interactive transitions without JavaScript. A user clicking on one of the cards causes the profile picture to grow larger in size and the <code>&lt;div&gt;</code> with additional details to expand smoothly with max-height. I also added a unique :focus-visible state to protect keyboard accessibility by adding a bold accent outline so that everyone will have the same experience with focus as they will have using their eyes.</p>
+                    
+                    <h3>Accessibility</h3>
+                    <p>Throughout the development of this page, I worked to make it accessible and inclusive for all. Semantic HTML5 elements such as <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code> and <code>&lt;article&gt;</code> were used to provide a clear structure for assistive technologies. The heading hierarchy is logical from <code>&lt;h1&gt;</code> to <code>&lt;h3&gt;</code> with no missing levels and provides a good outline for screen readers. The tabindex is practically explicitly assigned to each team card, thus creating team cards that can be focused and navigated by keyboard users. Images, such as profile pictures, have descriptive alt text to provide context for visually impaired users and a unique :focus-visible outlined appearance when using the keyboard.</p>
+                    
+                    <h3>Link to the validation page</h3>
+                    <p><a href="validation_ST3.html#teamVal">Open the Team page validation section</a>, which contains the W3C snapshot and reflection for this page.</p>
+                    
+                    <h3>Link to the page</h3>
+                    <p><a href="team.html">Open the Team page.</a></p>
+                </section>
+                
+                <section>
+                    <h2 id="content">Content page</h2>
+                    <h3>Technical Description</h3>
+                    <p>I used semantic HTML5 tags to organize information efficiently and properly for standard visitors and assistive technologies to make the content page of Nature & Green Spaces easy to navigate. The overall scope, or structural scope, for the whole core topic is defined by a <code>&lt;main&gt;</code> wrapper. An introductory paragraph sets the context before a secondary <code>&lt;nav&gt;</code> block offers jump links for navigating within the page. The main informational concept is broken down into individual blocks of <code>&lt;section&gt;</code> elements that are each semantically identified (e.g., <code>forests</code> or <code>urban-green</code>). There will be a consistent hierarchy of headings, with the main topic represented by an <code>&lt;h1&gt;</code> tag, and sub-topics within each section of the layout will be represented by an <code>&lt;h2&gt;</code> tag, providing an easy-to-navigate roadmap for the entire document.</p>
+                    <p>I made a clean information flow with the core grid, using CSS Flexbox rules to layout and present it in a column layout (display: flex; flex-direction: column). By default, each individual content card is presented horizontally, but I added flex-direction: row-reverse to every content card with an even index (i.e. &lt;section index="2"&gt;, &lt;section index="4"&gt;, etc.) to create an interesting alternating layout. Responsiveness is achieved using a CSS media query to change the flex-direction to column when the width/size of the screen is below 700px through the interface. Smooth transitions linked to the :hover and :focus-within values bring about cards to life with the help of translateY(-6px) and by introducing a visible highlight border, the presentation changes in real time, without forcing client side scripts to execute.</p>
+                    
+                    
+                    <h3>Accessibility</h3>
+                    <p>Throughout the development of me, I have made sure the Nature & Green Spaces content page is inclusive and accessible to all digitally. Incorporated semantic HTML5 elements such as <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, and <code>&lt;nav&gt;</code> to provide an assistive technology a document outline. The hierarchy of headings is logical, starting from an <code>&lt;h1&gt;</code> and continuing to an <code>&lt;h2&gt;</code> subheading and not missing a level, which is helpful for the screen reader to properly outline the content. To create the interactive layout, I used explicit id attributes on sections and an in-page navigation block with an aria-label="Page sections" which allows a keyboard user to quickly skip to a topic. Passive layouts are made focusable with the addition of a tabindex="0" and decorative and context-rich images are accompanied by descriptive alt text so that visually impaired users can follow along easily.</p>
+                    
+                    <h3>Link to the validation page</h3>
+                    <p><a href="validation_ST3.html#contentVal">Open the Content page validation section</a>, which contains the W3C snapshot and reflection for this page.</p>
+                    
+                    <h3>Link to the page</h3>
+                    <p><a href="content_ST3.html">Open the Content page.</a></p>
+                </section>
+                
+                <section>
+                    <h2 id="challenge">Challenges and Lessons Learned</h2>
+                    <p>The main issues I had to overcome during development was the global stylesheet file 'style.css' and the local style sheet, which I would have to deal with unexpected style inheritance and specious selector conflicts. If the global file targeted the raw <code>&lt;nav&gt;</code> tag with the high-priority placement rules that only apply to the main header, for example when designing the page-specific jump navigation menus, then it should not be used. This made my sub navigation bars to center absolutely, move out of place, and disappear right behind the main navigation menu. I started to try to work around these restrictions with ill-formed cascading sets of !important styles, but that soon made my stylesheet messy. The most efficient way to do this was to refactor the html, using a generic <code>&lt;div&gt;</code> with an own class name and completely removing it from the global header "scope.</p>
+                    <p>A related concrete layout problem arose in implementing the interactive card systems on both the Team and the Content pages. Use smooth transform: translateY(-6px) with a box-shadow above the box, to raise the cards dynamically. This was fine for some of the blocks, but the flexbox block-configuration cards didn't budge at all, even when they were supposed to hover based on the state of the link. While researching the inner workings of the layout engines of browsers, I discovered that sometimes, elements with dynamic flex behavior do not have an explicit positioning baseline to other structural siblings. This was fixed by explicitly setting position: relative; on the base class of the card, which instantly corrected the layout context and made all the grid items position: relative; and move at the same rate.</p>
+                    <p>Also, some image links were broken in the initial deployment, due to managing asset paths with a multi-page directory structure. Relative paths such as images/team-krishen.jpg were causing some failures while moving between roots, depending on the nesting of the pages in the local development environments. I had to do absolute file consistency within each HTML document and correct all the folder references, which meant that I had to go through the whole folder structure and audit it. Meanwhile, I saw that large image asset sizes were causing text blocks within card flex boxes to get skewed. I fixed this presentation issue by using object-fit: cover and hard coded the width constraints so that all photos were cropped so that they fit perfectly without changing their aspect ratios.</p>
+                    <p>In the end this development process taught me the crucial need to take the time to write code that is modular, defensive and plan out layouts before styling them. I learned that making use of common element selectors like <code>&lt;nav&gt;</code> and <code>&lt;p&gt;</code> in global stylesheets is a fragile codebase because, down the road, it can cause unexpected style leaks to break the independent parts of the application. But I needed to change to explicit class names to resolve my navigation problems, and to make my files much easier to read. Also, by using CSS alone instead of JavaScript, (with some advanced pseudo-classes) to create a dynamic, interactive system, it demonstrated the power of semantic HTML and well-used pseudo-classes. In the future, I will focus on ensuring that my websites are scalable, clean and fully functional - from the outset I will think about the structure and layout baseline, testing it across browsers and planning for accessibility.</p>
+                </section>
+                
+                <section>
+                    <h2 id="compliance">Compliance</h2>
+                    <p>All content on my three pages is original, written by me from my own research. Where I referenced external facts and statistics, I cited the original source in-text and included a full entry in the References section. No copyrighted articles, images, or code have been reproduced verbatim.</p>
+                    <p>The images used on my pages come from either the SPARK team's own image folder or from stock sources that permit non-commercial educational use. Any external image sources are attributed in the References section. No branded logos, trademarks, or celebrity likenesses appear anywhere on my pages, which keeps the project on the safe side of Janet acceptable use guidelines.</p>
+                    <p>The site collects no personal data, uses no third-party trackers, and stores nothing in cookies or local storage. All interactivity happens client-side within the browser session and disappears when the user closes the tab. This means the project sits comfortably within data protection expectations for a student educational project.</p>
+                    <p>Accessibility has been treated as a compliance requirement rather than a nice-to-have. Semantic HTML tags, descriptive alt text on every image, a strict heading hierarchy, ARIA labels on non-obvious landmarks, and adequate contrast ratios all sit within the Janet expectations for public-facing educational content and are consistent with the WCAG guidance covered in the module lectures.</p>
+                    <p>Nothing on the pages is offensive, defamatory, or promotes illegal activity. The tone is educational and constructive, aligned with the SDG 13 climate action theme.</p>
+                </section>
+                
+                <section>
+                    <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+                    <p>Six team meetings were held across the project timeline. My individual write-ups follow the table.</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Meeting</th>
+                                <th>Date &amp; Time</th>
+                                <th>Format</th>
+                                <th>Objective</th>
+                                <th>Attended</th>
+                                <th>My Individual Contribution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>25 Jun 2026, 10:00</td>
+                                <td>Face-to-face</td>
+                                <td>Agree SDG, assign sub-topics, decide site structure</td>
+                                <td>Yes</td>
+                                <td>Picked the Climate Change theme, volunteered to build the Nature page, and agreed to set up the Team page.</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>30 Jun 2026, 14:00</td>
+                                <td>Online</td>
+                                <td>Design language, palette, font pair, first sketch reviews</td>
+                                <td>Yes</td>
+                                <td>Suggested using dark card backgrounds (#121212) to make the nature images pop and sketched the layout structure of my content page.</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>4 Jul 2026, 11:00</td>
+                                <td>Online</td>
+                                <td>Progress check on splash, home draft, shared CSS setup</td>
+                                <td>Yes</td>
+                                <td>Added basic card spacing code to the shared CSS file and checked that the header didn't block the page text.</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>8 Jul 2026, 15:00</td>
+                                <td>Hybrid</td>
+                                <td>Content page structures, integration planning</td>
+                                <td>Yes</td>
+                                <td>Mapped out the HTML structure for the Nature page, adding the <code>&lt;section&gt;</code> blocks and implementing the initial internal page jump menu.</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>12 Jul 2026, 16:00</td>
+                                <td>Online</td>
+                                <td>Template pivot decision, style refactor plan</td>
+                                <td>Yes</td>
+                                <td>Identified that the global header styling was breaking the local page jump navigation menu and fixed it.</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>16 Jul 2026, 13:00</td>
+                                <td>Face-to-face</td>
+                                <td>W3C validation pass, cross-page linking, GitHub Pages check</td>
+                                <td>Yes</td>
+                                <td>Ran my HTML code through the W3C validator to fix code errors, repaired broken image links.</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>19 Jul 2026, 10:00</td>
+                                <td>Face-to-face</td>
+                                <td>Viva rehearsal, contract sign-off, submission checklist</td>
+                                <td>Yes</td>
+                                <td>Tested the keyboard navigation (tabindex) on the cards during the presentation practice and signed off on the group checklist.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>My main responsibilities for this project were to create and present the "Nature & Green Spaces" content page and to create and present the shared pages for "Team" and "Feedback". This work involved the key design elements of layout construction, ensuring that the information was clearly structured with semantic HTML5 and styled with a responsive CSS flexbox design to fit the smaller mobile screens. Proactively problem-solved by refactoring container tags to separate out the layout when faced with problems like global header styles polluting my local jump navigation menu and making it unusable. I also made a concerted effort to make the pages accessible to the widest audience possible, using clear keyboard tab indexes and distinct visual styles for focus to ensure it could be easily used by all. Finally, I made sure my components were W3C validated, fully responsive and completely in line with my group's final site structure.</p>
+                </section>
+                
+                <section>
+                    <h2 id="ref">References</h2>
+                    <p><strong>Academic and Learning Resources</strong></p>
+                    <ul class="ref">
+                        <li>Mozilla Developer Network (2026) <em>Web Docs: HTML forms guide</em>. Available at: <a href="https://developer.mozilla.org" target="_blank">https://developer.mozilla.org</a> (Accessed: 15 July 2026).</li>
+                        <li>W3Schools (2026) <em>HTML and CSS Tutorials</em>. Available at: <a href="https://www.w3schools.com" target="_blank">https://www.w3schools.com</a> (Accessed: 15 July 2026).</li>
+                        <li>W3C (2026) <em>Nu HTML Checker</em>. Available at: <a href="https://validator.w3.org/nu/" target="_blank">https://validator.w3.org/nu/</a> (Accessed: 19 July 2026).</li>
+                        <li>United Nations (2020) <em>Goal 15: Life on Land</em>, Sustainable Development Goals. Available at: <a href="https://sdgs.un.org/goals/goal15" target="_blank">https://sdgs.un.org/goals/goal15</a> (Accessed: 18 July 2026).</li>
+                        <li>Duckett, J. (2011) <em>HTML and CSS: Design and Build Websites</em>, John Wiley &amp; Sons Inc., Indianapolis.</li>
+                        <li>Module lecture notes (2026) <em>4COSC011W Web Design and Development</em>. University of Westminster.</li>
+                    </ul>
+                    <p style="margin-top:20px;"><strong>Image References (Content Page - Nature &amp; Green Spaces)</strong></p>
+                    <ul class="ref">
+                        <li>nature-plant image: <a href="https://share.google/jBfbmu0eUNYSBbiji" target="_blank">https://share.google/jBfbmu0eUNYSBbiji</a></li>
+                        <li>nature-forest image: <a href="https://share.google/cuePQ4OoQsmywv8fy" target="_blank">https://share.google/cuePQ4OoQsmywv8fy</a></li>
+                        <li>nature-biodiversity image: <a href="https://share.google/W0c3O4OO524iLAbxV" target="_blank">https://share.google/W0c3O4OO524iLAbxV</a></li>
+                        <li>nature-urban-parks image: <a href="https://share.google/UnVvQTUeYFbejtaNW" target="_blank">https://share.google/UnVvQTUeYFbejtaNW</a></li>
+                    </ul>
+                    <p style="margin-top:20px;"><strong>Image References (Feedback Page)</strong></p>
+                    <ul class="ref">
+                        <li>feedback-community image: <a href="https://share.google/OZhIMzyVxa4KGRUPA" target="_blank">https://share.google/OZhIMzyVxa4KGRUPA</a></li>
+                        <li>feedback-water image: <a href="https://share.google/I5eJ7460bGErapwKM" target="_blank">https://share.google/I5eJ7460bGErapwKM</a></li>
+                        <li>feedback-cycle image: <a href="https://share.google/NISstUHCgqP1QWLl9" target="_blank">https://share.google/NISstUHCgqP1QWLl9</a></li>
+                        <li>feedback-plant image: <a href="https://share.google/BF0H7fD6wWpak1rwK" target="_blank">https://share.google/BF0H7fD6wWpak1rwK</a></li>
+                        <li>feedback-electrician image: <a href="https://share.google/0FlQrM9TbmfmumHjY" target="_blank">https://share.google/0FlQrM9TbmfmumHjY</a></li>
+                    </ul>
+                
+            </section>
+            
+            <p class="top"><a href="#top">Go top</a></p>
+        </main>
+        
+        <aside>
+            <h3>Core pages developed:</h3>
+            <ul class="top-level-ul">
+                <li>Student 3 (Krishen Silva)</li>
+                <ul>
+                    <li><a href="#feedback">Feedback page</a></li>
+                    <li><a href="#team">Team page</a></li>
+                    <li><a href="#content">Content page</a></li>
+                </ul>
+                <li><a href="#challenge">Challenges &amp; Lessons Learned</a></li>
+                <li><a href="#compliance">Compliance</a></li>
+                <li><a href="#group">Meetings &amp; Contribution Log</a></li>
+                <li><a href="#ref">References</a></li>
+            </ul>
+        </aside>
+    </div>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
+                <p>Empowering individuals to take climate action for a sustainable future.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Coursework</h3>
+                <ul>
+                    <li><a href="pageEditor_ST3.html">Page Editor</a></li>
+                    <li><a href="validation_ST3.html">Validation Page</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Student Info</h3>
+                <p>Name: Krishen Silva</p>
+                <p>Student ID: w2212471</p>
+                <p>Role: Student 3</p>
+            </div>
+            <div class="footer-section">
+                <h3>Compliance</h3>
+                <ul>
+                    <li><a href="pageEditor_ST3.html#compliance">Accessibility Statement</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

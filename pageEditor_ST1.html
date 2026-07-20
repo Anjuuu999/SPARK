@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Editor | Yohan Nimneth | Student 1 | SPARK</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/pageEditor_validator.css">
+</head>
+
+<body id="top" class="page-content">
+
+    <header>
+        <div class="logo-group">
+            <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+            <div class="logo">SPAR<span class="k">K</span></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="ais.html">Simulator</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="sitemap.html">Sitemap</a></li>
+                <span></span>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="stud">
+        <h1>Yohan Nimneth &nbsp;|&nbsp; Team SPARK &nbsp;|&nbsp; Student 1</h1>
+    </section>
+
+    <div class="container">
+        <main>
+
+            <section>
+                <h2 id="home">Home Page</h2>
+                <h3>Technical Description</h3>
+                <p>The Home Page for the "SPARK" project was developed to introduce our chosen Sustainable Development Goal: Climate Action. I implemented the shared HTML template using semantic tags including header, nav, main, and footer tag to ensure a consistent structure across the entire site. For the core content, I used section tags to separate the hero introduction, the mission strategy area, and the theme exploration portal.</p>
+                <p>Technically, the layout relies heavily on CSS Grid and Flexbox. I used display: grid with grid-template-columns: repeat(4, 1fr) to create a responsive four-column layout for the mission cards. Each card includes a transition effect (transform: translateY(-10px)) and border-color changes on hover to provide a tactile feel. One of the most complex features I implemented is the sliding background navigation bar. This uses a span tag element within the nav tag that shifts its left position and width using CSS sibling selectors (li:hover ~ span) and transitions. This allows the black "pill" background to glide smoothly behind the text as the user hovers over different menu items.</p>
+                <p>The visual identity is defined by a dark-themed aesthetic (#121212) contrasted with "greenyellow" and "emerald" accents (#2ecc71) to represent sustainability. I used a linear-gradient overlay on the background image within the body selector to ensure that the white text remains legible regardless of the image brightness. </p>
+
+                <h3>Accessibility</h3>
+                <p>Accessibility was integrated into the Home Page through both structural and visual choices. I ensured that every image, from the Earth logo to the mission icons, contains descriptive alt text (e.g., "Icon representing solar panels and clean energy") so screen reader users understand the context of the graphics. I used semantic heading levels (h1 tag for the main call to action and h3 tag for cards) to create a logical document outline. To support keyboard-only users, I maintained a high color contrast ratio between the green accents and the dark backgrounds. Furthermore, the navigation bar was positioned using fixed CSS to ensure it is always available to the user, and I ensured that all interactive elements like the "Portal Buttons" have clearly defined hover states to indicate they are clickable. </p>
+
+                <h3>Link to the validation page</h3>
+                <p><a href="validation_ST1.html#homeVal">Open the Home Page validation section</a>, which contains the W3C snapshot and reflection for this page.</p>
+
+                <h3>Link to the page</h3>
+                <p><a href="home.html">Open the Home Page.</a></p>
+            </section>
+
+            <section>
+                <h2 id="gallery">Gallery Page</h2>
+                <h3>Technical Description</h3>
+                <p>The Gallery Page was developed to provide an immersive, interactive visual exploration of eight key climate impact themes. I used a CSS Grid layout (repeat(4, 1fr)) to display the gallery cards in a clean, professional grid that remains organized across different screen sizes. Each card is structured as a thumbnail image with a lower title bar. I utilized HTML5 data attributes (data-title and data-info) on each card element to store descriptive content. This approach keeps the HTML clean while making it easy for JavaScript to access the relevant text for each specific card when clicked.</p>
+                <p>The interactivity of the page is powered by JavaScript DOM manipulation. I used querySelectorAll to select all gallery cards and implemented a forEach loop to attach a click event listener to each one. When a card is clicked, the script captures the image source and the text from the data attributes, then dynamically populates the Extended View (Modal) before displaying it. I also implemented a specific requirement for User Customization using two functional buttons within the modal. These buttons use classList.toggle to switch between CSS classes: alt-font (changing the text to Courier New) and alt-color (switching to a high-contrast dark theme). This allows users to adjust the viewing experience to their personal preference or accessibility needs.</p>
+                
+
+                <h3>Accessibility</h3>
+                <p>Accessibility was a core focus during the construction of the gallery. Every thumbnail in the grid and the modal images includes meaningful alt text (e.g., "A melting glacier" or "Solar panels") to ensure visually impaired users using screen readers can understand the content. The modal is designed with a clear, high-contrast close button (&times;) that is easy to locate. I ensured that the gallery headers and card titles use a consistent heading hierarchy for better document navigation. Furthermore, the User Customization controls provide a functional benefit for accessibility, allowing users to switch to a monospaced font or a different color scheme to improve readability depending on their vision requirements</p>
+
+                <h3>Link to the validation page</h3>
+                <p><a href="validation_ST1.html#galleryVal">Open the Gallery Page  validation section</a>, which contains the W3C snapshot and reflection for this page.</p>
+
+                <h3>Link to the page</h3>
+                <p><a href="gallery.html">Open the Gallery Page .</a></p>
+            </section>
+
+            <section>
+                <h2 id="content">Content Page</h2>
+                <h3>Technical Description</h3>
+                <p>The Content Page, titled "Water and Climate Change," was created to provide a structured and detailed resource on how SDG 13 impacts the global water cycle. I utilized the shared HTML template to maintain group branding while implementing a clean, single-column main content area (.main-content-area) to prioritize readability. The page is divided into four thematic sections-The Water Cycle, Melting Glaciers, Extreme Weather, and Warming Oceans-each marked with an h2 tag heading and a unique id attribute. I also included a custom .impact-fact box with a distinct blue border to highlight critical statistics, creating a strong visual hierarchy.</p>
+                <p>To enhance user experience on this long-form page, I developed an internal navigation menu (.page-nav) at the top, which uses Flexbox to organize a list of jump-links. This allows users to navigate directly to specific topics without excessive scrolling. Additionally, I implemented a "Go to Top" button using position: fixed, ensuring it remains in the bottom-right corner as the user scrolls. This button relies entirely on HTML and CSS anchors to function, meeting the coursework requirement for a non-JavaScript navigation shortcut. All images were styled with a consistent .content-img class, featuring border-radii and box-shadows to ensure a professional and unified visual style.</p>
+                
+
+                <h3>Accessibility</h3>
+                <p>For the Content Page, I strictly followed a semantic heading hierarchy, starting with a single h1 tag for the page title followed by logical h2 tag sub-sections. This structure allows screen reader users to grasp the document outline easily. Each of the four images includes descriptive alt text (e.g., "Mountain and the water cycle" and "Cracked dry earth in a desert landscape") to convey meaning to visually impaired users. I prioritized readability by using a line-height of 1.8 and high-contrast text (#333) against a light background. To support keyboard navigation, I ensured that the internal navigation links and the "Go to Top" button have clear hover and focus states. Furthermore, the navigation container includes an aria-label to provide context for assistive technologies. </p>
+
+                <h3>Link to the validation page</h3>
+                <p><a href="validation_ST1.html#contentVal">Open the Content Page validation section</a>, which contains the W3C snapshot and reflection for this page.</p>
+
+                <h3>Link to the page</h3>
+                <p><a href="content_ST1.html">Open the Content Page.</a></p>
+            </section>
+
+            <section>
+                <h2 id="challenge">Challenges and Lessons Learned</h2>
+                <p>One of the first major hurdles I encountered was the creation of the sliding navigation bar background. My goal was to have a black "pill" shape glide smoothly behind the links as the user hovered over them. Initially, I struggled with the positioning logic; the span would either stay static or move to the wrong location because I hadn't accounted for the varying widths of the list items like "Simulator" versus "Team." I solved this by meticulously calculating the left offset and width values for each nth-child state in my CSS. This taught me the precision required for complex CSS transitions and how to use the general sibling selector (~) to control an element based on the state of its preceding siblings.</p>
+                <p>While designing the Home Page mission cards, I initially used Flexbox. However, I found that when the text content in one card was longer than the others, the alignment of the "Key Actions" list would become uneven across the row, making the layout look messy. To fix this, I refactored the entire section using CSS Grid. By defining grid-template-columns: repeat(4, 1fr), I achieved perfect symmetry. I also learned to nest a flex container inside the grid item using flex-direction: column and margin-top: auto on the highlights section. This ensured that regardless of text length, the action lists always aligned perfectly at the bottom of the cards.</p>
+                <p>Implementing the interactive gallery modal presented a significant JavaScript debugging challenge. Initially, my script would open the modal, but it would only display the image from the first gallery card, regardless of which card was actually clicked. I realized I was not correctly targeting the specific instance of the clicked element. I solved this by utilizing HTML5 data attributes and using getAttribute within the event listener to pull the unique title and info for the clicked card. Additionally, I initially had issues with the customization toggles (font and color change) where styles would "stack" and become unreadable. I fixed this by creating dedicated .alt-font and .alt-color classes and using classList.toggle to ensure the logic was clean and easily reversible for the user.</p>
+                <p>Finally, a recurring challenge was managing the Global CSS file for the entire group. Being responsible for the shared template meant I had to write styles that wouldn't "break" the pages built by my three teammates. I encountered a "broken" image path issue when we first integrated our files because our folder structures weren't perfectly aligned. I solved this by standardizing our file naming conventions and using relative paths. This experience taught me the vital importance of writing non-conflicting, modular code and communicating clearly with a team to maintain a unified design system.</p>
+            </section>
+
+            <section>
+                <h2 id="compliance">Compliance</h2>
+                <p>All content on my three pages is original, written by me from my own research. Where I referenced external facts and statistics, I cited the original source in-text and included a full entry in the References section. No copyrighted articles, images, or code have been reproduced verbatim.</p>
+                <p>The images used on my pages come from either the SPARK team's own image folder or from stock sources that permit non-commercial educational use. Any external image sources are attributed in the References section. No branded logos, trademarks, or celebrity likenesses appear anywhere on my pages, which keeps the project on the safe side of Janet acceptable use guidelines.</p>
+                <p>The site collects no personal data, uses no third-party trackers, and stores nothing in cookies or local storage. All interactivity happens client-side within the browser session and disappears when the user closes the tab. This means the project sits comfortably within data protection expectations for a student educational project.</p>
+                <p>Accessibility has been treated as a compliance requirement rather than a nice-to-have. Semantic HTML tags, descriptive alt text on every image, a strict heading hierarchy, ARIA labels on non-obvious landmarks, and adequate contrast ratios all sit within the Janet expectations for public-facing educational content and are consistent with the WCAG guidance covered in the module lectures.</p>
+                <p>Nothing on the pages is offensive, defamatory, or promotes illegal activity. The tone is educational and constructive, aligned with the SDG 13 climate action theme.</p>
+            </section>
+
+            <section>
+                <h2 id="group">Group Meetings and Individual Contribution Log</h2>
+                <p>Six team meetings were held across the project timeline. My individual write-ups follow the table.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Meeting</th>
+                            <th>Date &amp; Time</th>
+                            <th>Format</th>
+                            <th>Objective</th>
+                            <th>Attended</th>
+                            <th>My Individual Contribution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>25 Jun 2026, 10:00</td>
+                            <td>Face-to-face</td>
+                            <td>Agree SDG, assign sub-topics, decide site structure</td>
+                            <td>Yes</td>
+                            <td>I proposed focusing on SDG 13 (Climate Action). I volunteered for the Student 1 role, taking responsibility for the initial site architecture and building the shared template.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>30 Jun 2026, 14:00</td>
+                            <td>Online</td>
+                            <td>Design language, palette, font pair, first sketch reviews</td>
+                            <td>Yes</td>
+                            <td>I presented a mood board for the "SPARK" brand, suggesting the dark emerald and white color palette. I shared a wireframe for the four-column mission card layout on the Home Page.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>4 Jul 2026, 11:00</td>
+                            <td>Online</td>
+                            <td>Progress check on splash, home draft, shared CSS setup</td>
+                            <td>Yes</td>
+                            <td>I delivered the first version of the shared style.css file. I explained the logic behind the fixed header and the sliding navigation "pill" to the team to ensure consistency.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>8 Jul 2026, 15:00</td>
+                            <td>Hybrid</td>
+                            <td>Content page structures, integration planning</td>
+                            <td>Yes</td>
+                            <td> I demonstrated the internal anchor link system for long content pages. I assisted Student 2 and Student 3 in aligning their folder structures with the global template.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>12 Jul 2026, 16:00</td>
+                            <td>Online</td>
+                            <td>Template pivot decision, style refactor plan</td>
+                            <td>Yes</td>
+                            <td>I refactored the global navigation bar to be more responsive. I provided feedback on the CSS loader animation for the Splash Screen to ensure it matched our brand colors.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>16 Jul 2026, 13:00</td>
+                            <td>Face-to-face</td>
+                            <td>W3C validation pass, cross-page linking, GitHub Pages check</td>
+                            <td>Yes</td>
+                            <td>I conducted the final W3C validation pass for my three pages. I helped the team debug a cross-page linking issue where some images were not loading correctly in the shared folder.</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>19 Jul 2026, 10:00</td>
+                            <td>Face-to-face</td>
+                            <td>Viva rehearsal, contract sign-off, submission checklist</td>
+                            <td>Yes</td>
+                            <td> I verified that all internal links between the Home, Gallery, and Content pages were functional. I completed the final check of the file naming convention before signing the group contract.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>In this group project, I served as Student 1 and took on the responsibility of establishing the technical foundation for the "SPARK" website. My primary role was to design and implement the shared HTML template and global CSS file, ensuring a consistent visual identity across all team members' pages. Beyond the technical setup, I delivered three high-quality pages: a responsive Home Page featuring a custom-animated navigation bar, an interactive Gallery with JavaScript-driven user customization, and a comprehensive Content Page focused on the link between water and climate change. One of my biggest challenges was ensuring the template was modular enough for my teammates to use without CSS conflicts, which I managed through clear documentation and peer code reviews. This project allowed me to significantly refine my skills in CSS Grid, DOM manipulation, and collaborative development.</p>
+            </section>
+
+            <section>
+                <h2 id="ref">References</h2>
+                <p><strong>Academic and Learning Resources</strong></p>
+                <ul class="ref">
+                    <li>Mozilla Developer Network (2026) <em>CSS Grid Layout</em>. Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank">https://developer.mozilla.org</a> (Accessed: 19 July 2026).</li>
+                    <li>Mozilla Developer Network (2026) <em>Using Flexbox</em>. Available at: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout" target="_blank">https://developer.mozilla.org</a> (Accessed: 19 July 2026).</li>
+                    <li>W3Schools (2026) <em>HTML and CSS Tutorials</em>. Available at: <a href="https://www.w3schools.com" target="_blank">https://www.w3schools.com</a> (Accessed: 15 July 2026).</li>
+                    <li>W3C (2026) <em>Nu HTML Checker</em>. Available at: <a href="https://validator.w3.org/nu/" target="_blank">https://validator.w3.org/nu/</a> (Accessed: 19 July 2026).</li>
+                    <li>United Nations (2020) <em>Sustainable Development Goal 13: Climate Action</em>. Available at: <a href="https://sdgs.un.org/goals/goal13" target="_blank">https://sdgs.un.org/goals/goal13</a> (Accessed: 18 July 2026).</li>
+                    <li>Duckett, J. (2011) <em>HTML and CSS: Design and Build Websites</em>, John Wiley &amp; Sons Inc., Indianapolis.</li>
+                    <li>Module lecture notes (2026) <em>4COSC011W Web Design and Development</em>. University of Westminster.</li>
+                </ul>
+                <p style="margin-top:20px;"><strong>Image References</strong></p>
+                <ul class="ref">
+                    <li>Home page hero background: <a href="https://unsplash.com" target="_blank">Unsplash (Free-to-use license)</a></li>
+                    <li>Mission card icons (earth, plant, recycle, sea): <a href="https://www.flaticon.com" target="_blank">Flaticon (Free license)</a></li>
+                    <li>Gallery images (glacier, solar, forest, ocean, transport, water, agriculture, recycle): <a href="https://unsplash.com" target="_blank">Unsplash (Free-to-use license)</a></li>
+                    <li>Water cycle image (content_ST1): <a href="https://unsplash.com" target="_blank">Unsplash (Free-to-use license)</a></li>
+                    <li>Cracked earth image (content_ST1): <a href="https://unsplash.com" target="_blank">Unsplash (Free-to-use license)</a></li>
+                </ul>
+            </section>
+
+            <p class="top"><a href="#top">Go top</a></p>
+        </main>
+
+        <aside>
+            <h3>Core pages developed:</h3>
+            <ul class="top-level-ul">
+                <li>Student 1 (Yohan Nimneth)</li>
+                <ul>
+                    <li><a href="#home">Home Page</a></li>
+                    <li><a href="#gallery">Gallery Page</a></li>
+                    <li><a href="#content">Content Page</a></li>
+                </ul>
+                <li><a href="#challenge">Challenges &amp; Lessons Learned</a></li>
+                <li><a href="#compliance">Compliance</a></li>
+                <li><a href="#group">Meetings &amp; Contribution Log</a></li>
+                <li><a href="#ref">References</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
+                <p>Empowering individuals to take climate action for a sustainable future.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Coursework</h3>
+                <ul>
+                    <li><a href="pageEditor_ST1.html">Page Editor</a></li>
+                    <li><a href="validation_ST1.html">Validation Page</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Student Info</h3>
+                <p>Name: Yohan Nimneth</p>
+                <p>Student ID: w2212844</p>
+                <p>Role: Student 1</p>
+            </div>
+            <div class="footer-section">
+                <h3>Compliance</h3>
+                <ul>
+                    <li><a href="pageEditor_ST1.html#compliance">Accessibility Statement</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Spark - Profile</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		/* Embedded CSS for Profile page */
+		/* Active Navigation State for Profile Page */
+		nav span {
+			left: 263px;
+			width: 80px;
+		}
+
+		/* Target the first link (Home) */
+		nav ul li a[href="home.html"] {
+			color: black;
+		}
+
+		nav ul:hover li a[href="home.html"] {
+			color: black;
+		}
+
+		nav ul li a[href="home.html"]:hover {
+			color: greenyellow;
+		}
+
+		/* Target the fourth link (Profile) */
+		nav ul li a[href="profile.html"] {
+			color: greenyellow;
+		}
+
+		nav ul:hover li a[href="profile.html"] {
+			color: black;
+		}
+
+		nav ul li a[href="profile.html"]:hover {
+			color: greenyellow;
+		}
+
+		.profile-container {
+			background: white;
+			padding: 40px;
+			border-radius: 15px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+			width: 80%;
+			max-width: 800px;
+			margin: 20px auto;
+		}
+
+		.progress-bar-container {
+			background-color: #e0e0e0;
+			border-radius: 20px;
+			height: 20px;
+			width: 100%;
+			margin-bottom: 30px;
+			overflow: hidden;
+		}
+
+		.progress-bar {
+			background-color: #2ecc71;
+			height: 100%;
+			width: 0%;
+			transition: width 0.5s ease-in-out;
+		}
+
+		.step-controls {
+			display: flex;
+			gap: 10px;
+			margin-bottom: 20px;
+		}
+
+		.btn {
+			padding: 10px 20px;
+			border: none;
+			border-radius: 50px;
+			background-color: #074534;
+			color: white;
+			cursor: pointer;
+			font-weight: bold;
+			transition: background-color 0.3s;
+		}
+
+		.btn:hover {
+			background-color: #2ecc71;
+		}
+
+		.profile-section {
+			display: none;
+			/* Hidden initially */
+			margin-bottom: 20px;
+			padding-bottom: 20px;
+			border-bottom: 1px solid #e0e0e0;
+		}
+
+		.profile-section h2 {
+			color: #074534;
+			margin-bottom: 15px;
+		}
+
+		.profile-data p {
+			margin-bottom: 10px;
+			line-height: 1.5;
+		}
+
+		.profile-data strong {
+			color: #555;
+			text-transform: capitalize;
+		}
+	</style>
+</head>
+
+<body class="page-profile">
+
+	<header>
+    <div class="logo-group">
+        <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+        <div class="logo">SPAR<span class="k">K</span></div>
+    </div>
+    <nav>
+        <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="ais.html">Simulator</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="profile.html" class="active-page">Profile</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+            <span></span>
+        </ul>
+    </nav>
+</header>
+
+	<main class="main-topic" style="display: block; padding-top: 150px;">
+
+		<div style="text-align: center; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
+			<h1 style="color: #074534; font-size: 2.5rem; margin-bottom: 15px;">Build Your SPARK Profile</h1>
+			<p style="color: #1f2937; font-size: 1.05rem;">Complete a three-step profile to personalise your climate action journey. Your data stays local in your browser session.</p>
+		</div>
+
+		<div class="profile-container">
+			<div class="progress-container">
+				<p id="progress-text" style="margin-bottom: 10px; font-weight: bold;">Profile Completion: 0%</p>
+				<div class="progress-bar-container">
+					<div class="progress-bar" id="progress-bar"></div>
+				</div>
+			</div>
+
+			<div class="step-controls">
+				<button class="btn" id="start-btn" onclick="startProfileBuilder()">Start / Continue Profile</button>
+				<button class="btn" id="reset-btn" onclick="resetProfile()" style="background-color: #e74c3c;">Reset
+					Profile</button>
+			</div>
+
+			<div class="step-controls" id="revisit-controls" style="display: none; margin-bottom: 20px;">
+				<button class="btn" style="background-color: #3498db; font-size: 0.8rem; padding: 5px 15px;"
+					onclick="revisitStep(0)">Revisit Step 1</button>
+				<button class="btn" style="background-color: #3498db; font-size: 0.8rem; padding: 5px 15px;"
+					onclick="revisitStep(1)">Revisit Step 2</button>
+				<button class="btn" style="background-color: #3498db; font-size: 0.8rem; padding: 5px 15px;"
+					onclick="revisitStep(2)">Revisit Step 3</button>
+			</div>
+
+			<div id="profile-output-area">
+				<!-- Sections will be revealed here via JS -->
+				<div class="profile-section" id="section-personal">
+					<h2>Step 1: Personal Details</h2>
+					<div class="profile-data" id="data-personal"></div>
+				</div>
+				<div class="profile-section" id="section-interests">
+					<h2>Step 2: Interests</h2>
+					<div class="profile-data" id="data-interests"></div>
+				</div>
+				<div class="profile-section" id="section-actions">
+					<h2>Step 3: Commitments</h2>
+					<div class="profile-data" id="data-actions"></div>
+				</div>
+			</div>
+
+		</div>
+
+	</main>
+
+	<footer>
+    <div class="footer-container">
+        <div class="footer-section">
+            <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
+            <p>Taking climate action through everyday choices.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Coursework</h3>
+            <ul>
+                <li><a href="pageEditor_ST4.html">Page Editor</a></li>
+                <li><a href="validation_ST4.html">Validation Page</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Student Info</h3>
+            <p>Name: Sithil Hettiarachchi</p>
+            <p>Student ID: 20251350</p>
+            <p>Role: Student 4</p>
+        </div>
+        <div class="footer-section">
+            <h3>Compliance</h3>
+            <ul>
+                <li><a href="pageEditor_ST4.html#compliance">Accessibility Statement</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+    </div>
+</footer>
+
+	<script>
+		// JavaScript for Profile Builder
+		const profileSteps = [
+			{
+				id: 'personal',
+				prompts: [
+					{ key: 'name', question: 'What is your full name?' },
+					{ key: 'username', question: 'Choose a username:' },
+					{ key: 'location', question: 'Where are you from?' }
+				]
+			},
+			{
+				id: 'interests',
+				prompts: [
+					{ key: 'topic', question: 'Which SDG 13 topic interests you most? (e.g., Renewable Energy, Conservation)' },
+					{ key: 'motivation', question: 'What motivates you to act on climate change?' },
+					{ key: 'newsletter', question: 'Would you like to join our newsletter? (Yes/No)' }
+				]
+			},
+			{
+				id: 'actions',
+				prompts: [
+					{ key: 'goal', question: 'What is your main climate action goal this year?' },
+					{ key: 'frequency', question: 'How often do you plan to volunteer? (e.g., Weekly, Monthly)' },
+					{ key: 'pledge', question: 'Do you pledge to reduce your carbon footprint? (Yes/No)' }
+				]
+			}
+		];
+
+		let userData = {
+			personal: {},
+			interests: {},
+			actions: {}
+		};
+
+		let currentStepIndex = 0;
+
+		function startProfileBuilder() {
+			if (currentStepIndex >= profileSteps.length) {
+				// Revisit earlier steps if missed
+				currentStepIndex = 0;
+			}
+
+			const step = profileSteps[currentStepIndex];
+
+			for (let i = 0; i < step.prompts.length; i++) {
+				const p = step.prompts[i];
+				let existingValue = userData[step.id][p.key] || "";
+				let answer = prompt(p.question, existingValue);
+
+				if (answer !== null) {
+					if (answer.trim() !== "") {
+						userData[step.id][p.key] = answer.trim();
+					} else {
+						// Kept blank
+						delete userData[step.id][p.key];
+					}
+				} else if (answer === null) {
+					// User cancelled prompt, stop the step here
+					alert("Step paused. You can continue later.");
+					updateProfileOutput();
+					return;
+				}
+			}
+
+			// Move to next step if user didn't cancel out early
+			currentStepIndex++;
+			updateProfileOutput();
+		}
+
+		function revisitStep(index) {
+			currentStepIndex = index;
+			startProfileBuilder();
+		}
+
+		function updateProfileOutput() {
+			let totalPrompts = 0;
+			let answeredPrompts = 0;
+
+			profileSteps.forEach(step => {
+				let sectionHtml = "";
+				let hasData = false;
+
+				step.prompts.forEach(p => {
+					totalPrompts++;
+					if (userData[step.id] && userData[step.id][p.key]) {
+						answeredPrompts++;
+						sectionHtml += `<p><strong>${p.key}:</strong> ${userData[step.id][p.key]}</p>`;
+						hasData = true;
+					}
+				});
+
+				const sectionEl = document.getElementById('section-' + step.id);
+				const dataEl = document.getElementById('data-' + step.id);
+
+				if (hasData) {
+					sectionEl.style.display = 'block';
+					dataEl.innerHTML = sectionHtml;
+				} else {
+					sectionEl.style.display = 'none';
+					dataEl.innerHTML = "";
+				}
+			});
+
+			// Update Progress
+			let percentage = Math.round((answeredPrompts / totalPrompts) * 100);
+			document.getElementById('progress-bar').style.width = percentage + '%';
+			document.getElementById('progress-text').innerText = `Profile Completion: ${percentage}% (${answeredPrompts}/${totalPrompts} prompts completed)`;
+
+			// Show revisit buttons once user has started
+			if (currentStepIndex > 0) {
+				document.getElementById('revisit-controls').style.display = 'flex';
+			}
+
+			if (percentage === 100) {
+				if (!document.getElementById('completion-msg')) {
+					let msg = document.createElement('p');
+					msg.id = 'completion-msg';
+					msg.style.color = '#2ecc71';
+					msg.style.fontWeight = 'bold';
+					msg.style.marginTop = '15px';
+					msg.innerText = "Congratulations! Your profile is 100% complete.";
+					document.querySelector('.progress-container').appendChild(msg);
+				}
+			} else {
+				let msg = document.getElementById('completion-msg');
+				if (msg) msg.remove();
+			}
+		}
+
+		function resetProfile() {
+			if (confirm("Are you sure you want to reset your profile?")) {
+				userData = { personal: {}, interests: {}, actions: {} };
+				currentStepIndex = 0;
+				document.getElementById('revisit-controls').style.display = 'none';
+				updateProfileOutput();
+			}
+		}
+	</script>
+
+</body>
+
+</html>

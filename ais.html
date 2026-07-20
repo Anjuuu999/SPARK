@@ -23,7 +23,7 @@
 
         .ais-intro {
             text-align: center;
-            padding: 50px 8% 20px;
+            padding: 130px 8% 20px;
             color: var(--white);
         }
         .ais-intro h1 { color: var(--white); font-size: 2.6rem; }
@@ -112,29 +112,54 @@
             transition: 0.3s;
         }
         .reset-btn:hover { background: var(--deep-forest); }
-    </style>
+    
+		.top-btn {
+			position: fixed;
+			bottom: 30px;
+			right: 30px;
+			width: 52px;
+			height: 52px;
+			border-radius: 50%;
+			background: #2ecc71;
+			color: #ffffff;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.4rem;
+			font-weight: 700;
+			box-shadow: 0 6px 18px rgba(46, 204, 113, 0.5);
+			transition: 0.3s;
+			z-index: 999;
+			text-decoration: none;
+		}
+		.top-btn:hover {
+			background: #074534;
+			transform: translateY(-4px);
+			color: #ffffff;
+		}
+	</style>
 </head>
 
-<body class="page-simulator">
+<body id="top" class="page-simulator">
 
     <header>
-        <div class="logo-group">
-            <img src="images/logo.png" alt="SPARK logo" class="logo-img">
-            <div class="logo">SPAR<span class="k">K</span></div>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="ais.html" class="active-page">Simulator</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
-                <li><a href="team.html">Team</a></li>
-                <li><a href="sitemap.html">Sitemap</a></li>
-                <span></span>
-            </ul>
-        </nav>
-    </header>
+    <div class="logo-group">
+        <img src="images/logo.png" alt="SPARK logo" class="logo-img">
+        <div class="logo">SPAR<span class="k">K</span></div>
+    </div>
+    <nav>
+        <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="ais.html" class="active-page">Simulator</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+            <span></span>
+        </ul>
+    </nav>
+</header>
 
     <main>
 
@@ -214,38 +239,40 @@
             <button class="reset-btn" onclick="resetSimulator()">Reset</button>
         </section>
 
-    </main>
+    
+		<a href="#top" class="top-btn" aria-label="Back to top">&uarr;</a>
+	</main>
 
     <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
-                <p>Empowering individuals to take climate action for a sustainable future.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Coursework</h3>
-                <ul>
-                    <li><a href="pageEditor_ST2.html">Page Editor</a></li>
-                    <li><a href="validation_ST2.html">Validation Page</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Student Info</h3>
-                <p>Name: Anjana Dodammullage</p>
-                <p>Student ID: 20251335</p>
-                <p>Role: Student 2</p>
-            </div>
-            <div class="footer-section">
-                <h3>Compliance</h3>
-                <ul>
-                    <li><a href="#">Accessibility Statement</a></li>
-                </ul>
-            </div>
+    <div class="footer-container">
+        <div class="footer-section">
+            <div class="logo logo-footer">SPAR<span class="k" style="color:#2ecc71;">K</span></div>
+            <p>Taking climate action through everyday choices.</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+        <div class="footer-section">
+            <h3>Coursework</h3>
+            <ul>
+                <li><a href="pageEditor_ST2.html">Page Editor</a></li>
+                <li><a href="validation_ST2.html">Validation Page</a></li>
+            </ul>
         </div>
-    </footer>
+        <div class="footer-section">
+            <h3>Student Info</h3>
+            <p>Name: Anjana Dodammullage</p>
+            <p>Student ID: 20251335</p>
+            <p>Role: Student 2</p>
+        </div>
+        <div class="footer-section">
+            <h3>Compliance</h3>
+            <ul>
+                <li><a href="pageEditor_ST2.html#compliance">Accessibility Statement</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 SPARK - Web Design and Development Coursework.</p>
+    </div>
+</footer>
 
     <script>
         const countEl   = document.getElementById('count-selected');
