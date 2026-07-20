@@ -1,0 +1,203 @@
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #eaf6f1;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+.stud {
+    text-align: center;
+    background: #074534;
+    color: #ffffff;
+    padding: 18px 20px;
+    margin: 130px 5% 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(7, 69, 52, 0.15);
+}
+.stud h1 {
+    color: #ffffff;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.4;
+}
+
+.container {
+    display: flex;
+    flex-direction: row-reverse;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 10px 5% 40px;
+    gap: 30px;
+}
+
+main {
+    flex: 3;
+    min-width: 0;
+}
+
+aside {
+    flex: 1;
+    background: #ffffff;
+    padding: 25px 22px;
+    border: 1px solid rgba(7, 69, 52, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(7, 69, 52, 0.05);
+    height: fit-content;
+    position: sticky;
+    top: 130px;
+    max-width: 280px;
+}
+
+aside h3 {
+    color: #074534;
+    margin: 0 0 12px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #2ecc71;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+}
+
+aside a {
+    text-decoration: none;
+    color: #1f2937;
+    font-size: 0.88rem;
+    transition: 0.3s;
+}
+aside a:hover { color: #2ecc71; }
+aside li { padding-bottom: 6px; }
+
+.top-level-ul,
+.top-level-ul ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.top-level-ul > li {
+    font-weight: 700;
+    color: #074534;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.92rem;
+    margin-top: 12px;
+}
+.top-level-ul > ul {
+    padding-left: 15px;
+    margin: 5px 0 8px;
+    border-left: 2px solid #eaf6f1;
+}
+
+section {
+    margin-bottom: 25px;
+    padding: 28px 32px;
+    border: 1px solid rgba(7, 69, 52, 0.1);
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(7, 69, 52, 0.05);
+}
+section h2 {
+    color: #074534;
+    border-left: 5px solid #2ecc71;
+    padding-left: 15px;
+    margin: 0 0 15px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+}
+section h3 {
+    color: #2ecc71;
+    margin: 22px 0 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+section p {
+    margin-bottom: 12px;
+    font-size: 0.98rem;
+}
+section a {
+    color: #2ecc71;
+    text-decoration: none;
+    font-weight: 600;
+}
+section a:hover { text-decoration: underline; }
+
+.ref { list-style: none; padding: 0; }
+.ref li {
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(7, 69, 52, 0.15);
+    font-size: 0.9rem;
+}
+.ref li:last-child { border-bottom: none; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 0.88rem;
+    border-radius: 10px;
+    overflow: hidden;
+}
+th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border: 1px solid rgba(7, 69, 52, 0.15);
+}
+thead th {
+    background: #074534;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+tbody tr:nth-child(even) { background: #eaf6f1; }
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(7, 69, 52, 0.1);
+    box-shadow: 0 4px 12px rgba(7, 69, 52, 0.1);
+    margin: 12px 0;
+}
+
+.top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    margin: 0;
+    z-index: 999;
+}
+.top a {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #2ecc71;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 6px 18px rgba(46, 204, 113, 0.4);
+    transition: 0.3s;
+}
+.top a:hover {
+    background: #074534;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column-reverse;
+        padding: 10px 5% 30px;
+    }
+    aside {
+        position: static;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .stud { margin: 110px 3% 15px; }
+    section { padding: 22px 20px; }
+    section h2 { font-size: 1.35rem; }
+}
